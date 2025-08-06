@@ -1,5 +1,5 @@
 const Hero = () => {
-  return <section>Hero</section>;
+  return <section className="py-20"></section>;
 };
 
 export default Hero;
