@@ -12,7 +12,7 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 border-b border-amber-200 px-10 py-3 flex justify-between items-center bg-white/90">
+    <nav className="sticky top-0 border-b border-amber-200 px-10 py-3 flex justify-between items-center bg-white z-10">
       <a href="/" className="text-2xl font-bold flex items-center space-x-2">
         <Image src="/logo.jpg" alt="Logo" width={70} height={70} />
         <span className="textGradient">VedVarta</span>
