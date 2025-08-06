@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import CTA from "@/app/components/CTA";
 
 // This would typically come from a database or CMS
 const blogPosts = [
@@ -299,30 +300,7 @@ export default function BlogPost({ params }) {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-8 bg-white/50 rounded-xl p-8 border border-amber-200">
-              <h3 className="text-xl font-semibold mb-4 textGradient">
-                Need Personalized Guidance?
-              </h3>
-              <p className="text-gray-700 mb-6">
-                Get a detailed consultation based on your birth chart and current planetary periods.
-              </p>
-              <div className="flex justify-center space-x-4">
-                <a
-                  href="/contact"
-                  className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all duration-300 font-semibold"
-                >
-                  Book Consultation
-                </a>
-                <a
-                  href="https://wa.me/+916284219106"
-                  className="border-2 border-orange-500 text-orange-600 px-6 py-3 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-300 font-semibold"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp Us
-                </a>
-              </div>
-            </div>
+            <CTA />
           </footer>
         </div>
       </article>
