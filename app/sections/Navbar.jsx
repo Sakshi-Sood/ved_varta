@@ -37,7 +37,12 @@ const Navbar = () => {
           <Button
             text="Book Pooja"
             icon={
-              <img src="/agni-pooja.png" alt="Pooja Icon" className="w-5 h-5" />
+              <img
+                src="/agni-pooja.png"
+                alt="Pooja Icon"
+                className="w-5 h-5"
+                aria-hidden="true"
+              />
             }
           />
         </a>
@@ -48,7 +53,12 @@ const Navbar = () => {
         >
           <Button
             text="WhatsApp"
-            icon={<i className="fa-brands fa-whatsapp w-5 h-5"></i>}
+            icon={
+              <i
+                className="fa-brands fa-whatsapp w-5 h-5"
+                aria-hidden="true"
+              ></i>
+            }
             fill={true}
           />
         </a>
