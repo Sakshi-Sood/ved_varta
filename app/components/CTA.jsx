@@ -6,10 +6,10 @@ const CTA = () => {
   return (
     <div className="text-center mt-16 bg-white/50 rounded-lg p-8 border border-amber-200">
           <h3 className="text-2xl font-semibold mb-4 textGradient">
-            Want Personalized Guidance?
+            Ready to Transform Your Life?
           </h3>
           <p className="text-gray-700 mb-6">
-            Get a detailed birth chart analysis and personalized remedies from our experienced astrologers.
+            Get personalized guidance from Acharya Anoop Tripathi and discover the solutions to your life's challenges through ancient Vedic wisdom.
           </p>
           <div className="flex justify-center space-x-4">
             <Link

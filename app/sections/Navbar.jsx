@@ -7,7 +7,6 @@ const navLinks = [
   { name: "Products", href: "/products" },
   { name: "Services", href: "/services" },
   { name: "Blogs", href: "/blogs" },
-  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -15,7 +14,7 @@ const Navbar = () => {
     <nav className="sticky top-0 border-b border-amber-200 px-10 py-3 flex justify-between items-center bg-white z-10">
       <a href="/" className="text-2xl font-bold flex items-center space-x-2">
         <Image src="/logo.jpg" alt="Logo" width={70} height={70} />
-        <span className="textGradient">VedVarta</span>
+        <span className="text-orange-400">VedVarta</span>
       </a>
 
       <ul className="hidden lg:flex space-x-8">
