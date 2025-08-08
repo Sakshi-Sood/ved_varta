@@ -1,9 +1,8 @@
-import React from 'react'
+import Button from "../components/Button";
+import Image from "next/image";
 
 const Hero = () => {
-  return (
-    <div>Hero</div>
-  )
-}
+  return <section className="py-20"></section>;
+};
 
-export default Hero
+export default Hero;

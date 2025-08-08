@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
-.textGradient {
-  background: linear-gradient(to right, #f28518, #ff7e22);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.line-clamp-3 {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
