@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const BlogCard = ({ blog, featured = false }) => {
   const cardClasses = featured
-    ? "bg-white/70 rounded-xl shadow-lg overflow-hidden border border-amber-200 hover:shadow-xl transition-all duration-300 lg:flex"
-    : "bg-white/70 rounded-xl shadow-lg overflow-hidden border border-amber-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col";
+    ? "bg-white/70 rounded-xl shadow-xl overflow-hidden border-3 border-amber-300 hover:shadow-2xl transition-all duration-300 lg:flex"
+    : "bg-white/70 rounded-xl shadow-lg overflow-hidden border-2 border-amber-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col";
 
   const imageClasses = featured
     ? "lg:w-1/2 h-64 lg:h-auto relative"
@@ -21,7 +21,7 @@ const BlogCard = ({ blog, featured = false }) => {
           src={blog.image}
           alt={blog.title}
           fill
-          className="object-cover"
+          className="object-cover hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute top-4 left-4">
           <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -59,19 +59,22 @@ const BlogCard = ({ blog, featured = false }) => {
         </p>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold text-sm mr-3">
-              {blog.author
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </div>
-            <span className="text-gray-700 font-medium">{blog.author}</span>
-          </div>
+          <Link href="/about" className="flex items-center">
+            <Image
+              src="/images/acharyaAnoop.jpg"
+              alt="Author Image"
+              width={36}
+              height={36}
+              className="rounded-full mr-3 object-cover hover:scale-110 transition-transform duration-300"
+            />
+            <span className="text-gray-700 font-medium text-sm hover:text-orange-500 transition-all duration-300">
+              Acharya Anoop Tripathi
+            </span>
+          </Link>
 
           <Link
             href={`/blogs/${blog.id}`}
-            className="text-orange-600 hover:text-orange-700 font-semibold text-sm flex items-center"
+            className="text-orange-500 hover:text-orange-600 font-semibold text-sm flex items-center"
           >
             Read More
             <i className="fas fa-arrow-right ml-2" aria-hidden="true"></i>
@@ -82,7 +85,7 @@ const BlogCard = ({ blog, featured = false }) => {
           {blog.tags.slice(1).map((tag, index) => (
             <span
               key={index}
-              className="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-medium"
+              className="bg-amber-100 text-amber-700 px-2 py-1 rounded-md text-xs font-medium"
             >
               {tag}
             </span>
