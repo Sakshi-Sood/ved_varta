@@ -54,9 +54,8 @@ const blogPosts = [
       
       <p>Understanding your birth chart is a journey of self-discovery that can provide valuable insights into your life's purpose and potential challenges. Consider consulting with an experienced Vedic astrologer for a detailed analysis.</p>
     `,
-    author: "Pandit Aditya Sharma",
     date: "January 15, 2025",
-    image: "/agni-pooja.png",
+    image: "/images/birth-chart.jpg",
     readTime: "8 min read",
     tags: ["Birth Chart", "Vedic Astrology", "Beginner Guide"]
   },
@@ -117,7 +116,7 @@ const blogPosts = [
     `,
     author: "Pandit Aditya Sharma",
     date: "January 10, 2025",
-    image: "/logo.jpg",
+    image: "/images/logo.jpg",
     readTime: "10 min read",
     tags: ["Career", "Remedies", "Success", "Mantras"]
   },
@@ -189,7 +188,7 @@ const blogPosts = [
     `,
     author: "Pandit Aditya Sharma",
     date: "January 5, 2025",
-    image: "/logo2.jpg",
+    image: "/images/logo2.jpg",
     readTime: "12 min read",
     tags: ["Mahadasha", "Dasha System", "Life Events", "Timing"]
   }
@@ -204,18 +203,16 @@ export default function BlogPost({ params }) {
   }
 
   return (
-    <main className="bg-gradient-to-b from-yellow-100 via-orange-100 to-amber-100 min-h-screen">
+    <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen">
       {/* Header with Back Button */}
-      <div className="bg-white/90 border-b border-amber-200 px-10 py-6">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/blogs"
-            className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold mb-4"
-          >
-            <i className="fas fa-arrow-left mr-2"></i>
-            Back to Blogs
-          </Link>
-        </div>
+      <div className="max-w-4xl mx-auto">
+        <Link
+          href="/blogs"
+          className="inline-flex items-center text-orange-500 hover:text-orange-600 font-semibold mt-4"
+        >
+          <i className="fas fa-arrow-left mr-2"></i>
+          Back to Blogs
+        </Link>
       </div>
 
       <article className="px-10 py-8">
@@ -239,11 +236,14 @@ export default function BlogPost({ params }) {
 
             <div className="flex items-center justify-between flex-wrap gap-4 text-gray-600 mb-6">
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
-                  {blog.author.split(' ').map(n => n[0]).join('')}
-                </div>
+                <Image src="/images/acharyaAnoop.jpg"
+                  alt="Author Image"
+                  width={48}
+                  height={48} className="rounded-full object-cover mr-4"
+                />
+
                 <div>
-                  <p className="font-semibold text-gray-800">{blog.author}</p>
+                  <p className="font-semibold text-gray-800">Acharya Anoop Tripathi</p>
                   <div className="flex items-center text-sm">
                     <span className="flex items-center mr-4">
                       <i className="far fa-calendar-alt mr-2" aria-hidden="true"
@@ -285,11 +285,15 @@ export default function BlogPost({ params }) {
                 About the Author
               </h3>
               <div className="flex items-start">
-                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0">
-                  {blog.author.split(' ').map(n => n[0]).join('')}
-                </div>
+                <Image
+                  src="/images/acharyaAnoop.jpg"
+                  alt="Author Image"
+                  width={64}
+                  height={64}
+                  className="rounded-full object-cover mr-4"
+                />
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">{blog.author}</h4>
+                  <h4 className="font-semibold text-gray-800 mb-2">Acharya Anoop Tripathi</h4>
                   <p className="text-gray-700">
                     A renowned Vedic astrologer with over 15 years of experience in providing spiritual guidance
                     and astrological remedies. Pandit Aditya specializes in birth chart analysis, career guidance,
