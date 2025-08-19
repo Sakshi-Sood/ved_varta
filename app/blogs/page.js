@@ -53,9 +53,8 @@ const blogPosts = [
       
       <p>Understanding your birth chart is a journey of self-discovery that can provide valuable insights into your life's purpose and potential challenges. Consider consulting with an experienced Vedic astrologer for a detailed analysis.</p>
     `,
-    author: "Pandit Aditya Sharma",
     date: "January 15, 2025",
-    image: "/agni-pooja.png",
+    image: "/images/birth-chart.jpg",
     readTime: "8 min read",
     tags: ["Birth Chart", "Vedic Astrology", "Beginner Guide"]
   },
@@ -114,9 +113,8 @@ const blogPosts = [
       <h3>Important Considerations</h3>
       <p>Remember that remedies work best when combined with sincere effort, skill development, and ethical conduct. Consult with a qualified Vedic astrologer to determine the most suitable remedies based on your individual birth chart.</p>
     `,
-    author: "Pandit Aditya Sharma",
     date: "January 10, 2025",
-    image: "/logo.jpg",
+    image: "/images/logo.jpg",
     readTime: "10 min read",
     tags: ["Career", "Remedies", "Success", "Mantras"]
   },
@@ -186,9 +184,8 @@ const blogPosts = [
       <h3>Conclusion</h3>
       <p>Understanding your current Mahadasha and Antardasha can provide valuable insights into life's timing and help you make informed decisions. Remember that planetary periods work within the framework of your overall birth chart and karma.</p>
     `,
-    author: "Pandit Aditya Sharma",
     date: "January 5, 2025",
-    image: "/logo2.jpg",
+    image: "/images/logo2.png",
     readTime: "12 min read",
     tags: ["Mahadasha", "Dasha System", "Life Events", "Timing"]
   }
@@ -196,7 +193,7 @@ const blogPosts = [
 
 export default function BlogsPage() {
   return (
-    <main className="bg-gradient-to-b from-yellow-100 via-orange-100 to-amber-100 min-h-screen px-10 py-8">
+    <main className="bg-gradient-to-br from-amber-200/80 via-yellow-200/50 to-amber-200/70 min-h-screen px-10 py-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
