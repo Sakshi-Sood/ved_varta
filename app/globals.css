@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+::selection {
+  background-color: theme('colors.amber.600');
+  color: theme('colors.white');
+}
+
 .line-clamp-3 {
   display: -webkit-box;
   line-clamp: 3;
