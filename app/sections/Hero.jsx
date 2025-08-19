@@ -1,8 +1,7 @@
-import Button from "../components/Button";
-import Image from "next/image";
-
 const Hero = () => {
-  return <section className="py-20"></section>;
+  return (
+    <section className="bg-gradient-to-br from-amber-200/70 via-yellow-200/50 to-amber-200/70"></section>
+  );
 };
 
 export default Hero;

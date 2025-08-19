@@ -10,9 +10,9 @@ const blogPosts = [
       "Understanding Your Birth Chart: A Beginner's Guide to Vedic Astrology",
     excerpt:
       "Discover how to read your birth chart and understand the fundamental principles of Vedic astrology that can guide your life decisions.",
-    author: "Pandit Aditya Sharma",
+    author: "Acharya Anoop Tripathi",
     date: "January 15, 2025",
-    image: "/agni-pooja.png",
+    image: "/images/birth-chart.jpg",
     readTime: "8 min read",
     tags: ["Birth Chart", "Vedic Astrology", "Beginner Guide"],
   },
@@ -21,9 +21,9 @@ const blogPosts = [
     title: "Powerful Vedic Remedies for Career Growth and Success",
     excerpt:
       "Learn about effective Vedic remedies and rituals that can help enhance your career prospects and remove obstacles from your professional path.",
-    author: "Pandit Aditya Sharma",
+    author: "Acharya Anoop Tripathi",
     date: "January 10, 2025",
-    image: "/logo.jpg",
+    image: "/images/logo.jpg",
     readTime: "10 min read",
     tags: ["Career", "Remedies", "Success", "Mantras"],
   },
@@ -32,9 +32,9 @@ const blogPosts = [
     title: "The Significance of Mahadasha and Antardasha in Life Events",
     excerpt:
       "Explore how planetary periods (Mahadasha) and sub-periods (Antardasha) influence major life events and transitions according to Vedic astrology.",
-    author: "Pandit Aditya Sharma",
+    author: "Acharya Anoop Tripathi",
     date: "January 5, 2025",
-    image: "/logo2.jpg",
+    image: "/images/logo2.jpg",
     readTime: "12 min read",
     tags: ["Mahadasha", "Dasha System", "Life Events", "Timing"],
   },
@@ -46,7 +46,7 @@ const BlogPreview = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="textGradient">Vedic Wisdom</span> Blog
           </h2>
           <p className="text-gray-700 text-lg max-w-2xl mx-auto mb-8">
