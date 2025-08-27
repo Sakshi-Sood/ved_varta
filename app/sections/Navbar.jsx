@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Products", href: "/products" },
   { name: "Services", href: "/services" },
   { name: "Blogs", href: "/blogs" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 px-4 sm:px-6 lg:px-10 py-4 z-50 shadow-sm ${
+      className={`sticky top-0 px-4 sm:px-6 lg:px-8 py-4 z-50 shadow-sm ${
         isMobileMenuOpen ? "bg-amber-100" : "bg-gray-100 shadow-none"
       }`}
     >
@@ -40,7 +41,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex space-x-8">
+        <ul className="hidden lg:flex space-x-4 xl:space-x-6 2xl:space-x-8">
           {navLinks.map(({ name, href }) => (
             <li key={name}>
               <Link
@@ -71,7 +72,7 @@ const Navbar = () => {
             />
           </Link>
           <Link
-            href="https://wa.me/+916284219106"
+            href="https://wa.me/+910000000000"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -168,7 +169,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link
-              href="https://wa.me/+916284219106"
+              href="https://wa.me/+910000000000"
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobileMenu}

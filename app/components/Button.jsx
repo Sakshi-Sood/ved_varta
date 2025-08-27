@@ -1,7 +1,7 @@
 const Button = ({ text, icon, fill, right, fullWidth }) => {
   return (
     <button
-      className={`flex items-center justify-center font-bold px-4 py-2 rounded-lg cursor-pointer border-2 border-amber-500 ${
+      className={`flex items-center justify-center font-semibold px-4 py-2 rounded-lg cursor-pointer border-2 border-amber-500 ${
         fullWidth ? "w-full" : ""
       } ${
         fill
