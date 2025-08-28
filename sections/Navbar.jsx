@@ -72,7 +72,7 @@ const Navbar = () => {
             />
           </Link>
           <Link
-            href="https://wa.me/+910000000000"
+            href="https://wa.me/+919090252584"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -169,7 +169,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link
-              href="https://wa.me/+910000000000"
+              href="https://wa.me/+919090252584"
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
