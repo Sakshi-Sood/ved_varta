@@ -1,7 +1,5 @@
-import Link from "next/link";
-import BlogCard from "../components/BlogCard";
-import Button from "../components/Button";
-import CTA from "../components/CTA";
+import BlogCard from "../../components/BlogCard";
+import CTA from "../../components/CTA";
 
 const blogPosts = [
   {

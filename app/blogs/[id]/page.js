@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import CTA from "@/app/components/CTA";
+import CTA from "@/components/CTA";
 
 // This would typically come from a database or CMS
 const blogPosts = [
