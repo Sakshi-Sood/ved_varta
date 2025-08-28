@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const CTA = () => {
   return (
-    <div className="text-center mt-16 bg-white/50 rounded-lg p-8 border border-amber-200">
+    <div className="text-center mt-4 bg-white/50 rounded-lg p-8 border border-amber-200">
       <h3 className="text-2xl font-semibold mb-4 textGradient">
         Ready to Transform Your Life?
       </h3>
@@ -13,11 +13,11 @@ const CTA = () => {
         solutions to your life's challenges through ancient Vedic wisdom.
       </p>
       <div className="flex justify-center space-x-4">
-        <Link href="/contact">
+        <Link href="tel:+919090252584">
           <Button text="Book Consultation" fill />
         </Link>
         <Link
-          href="https://wa.me/+910000000000"
+          href="https://wa.me/+919090252584"
           target="_blank"
           rel="noopener noreferrer"
         >
