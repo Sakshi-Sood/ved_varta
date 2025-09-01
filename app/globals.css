@@ -12,3 +12,28 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Themed gradient text utility */
+.textGradient {
+  background: linear-gradient(90deg, theme('colors.amber.700'), theme('colors.amber.500'), theme('colors.yellow.400'));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Pulse animation for floating button */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

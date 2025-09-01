@@ -5,7 +5,7 @@ import Image from "next/image";
 
 // Simple autoplaying banner carousel for the Products page
 
-const AUTO_PLAY_MS = 5000;
+const AUTO_PLAY_MS = 4000;
 
 export default function BannerCarousel({ banners }) {
   const [index, setIndex] = useState(0);
@@ -27,9 +27,9 @@ export default function BannerCarousel({ banners }) {
 
   return (
     <div className="pt-8 px-4 sm:pt-10 sm:px-6 lg:pt-12 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div
-          className="relative overflow-hidden group rounded-xl shadow-md ring-1 ring-amber-300/40 bg-amber-50/40"
+          className="relative overflow-hidden group rounded-2xl shadow-md ring-1 ring-amber-300/40 bg-amber-50/40"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -44,7 +44,7 @@ export default function BannerCarousel({ banners }) {
                   alt={b.alt}
                   fill
                   priority={i === 0}
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
@@ -58,14 +58,14 @@ export default function BannerCarousel({ banners }) {
             onClick={prev}
             className="absolute top-1/2 -translate-y-1/2 left-3 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
           >
-            ‹
+            <i className="fas fa-chevron-left text-lg" aria-hidden="true"></i>
           </button>
           <button
             aria-label="Next banner"
             onClick={next}
             className="absolute top-1/2 -translate-y-1/2 right-3 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
           >
-            ›
+            <i className="fas fa-chevron-right text-lg" aria-hidden="true"></i>
           </button>
 
           {/* Indicators */}

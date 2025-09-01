@@ -27,7 +27,7 @@ const ProductsPage = () => {
   };
 
   return (
-    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-50 to-amber-200/80 min-h-screen">
+    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen">
       {/* Banner Slideshow */}
       <section className="mb-6">
         <BannerCarousel banners={productBanners} />
