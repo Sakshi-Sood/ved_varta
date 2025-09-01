@@ -1,4 +1,4 @@
-import { productImageMap } from '@/utils/placeholderImages';
+import { productImageMap, getPlaceholderImage } from '@/utils/placeholderImages';
 
 export const products = [
   // Gemstones Category
@@ -349,6 +349,179 @@ export const products = [
     benefits: ["Spiritual protection", "Transformation", "Destroys negativity", "Shiva's blessings"],
     material: "Sterling Silver",
     weight: "5.5 grams"
+  }
+  ,
+
+  // Yantras Category
+  {
+    id: 25,
+    name: "Maha Mrityunjaya Yantra",
+    category: "Yantras",
+    price: 1499,
+    originalPrice: 1899,
+    description: "Powerful yantra dedicated to Lord Shiva for protection, health, and overcoming fear.",
+    image: productImageMap[25],
+    rating: 5,
+    inStock: true,
+    benefits: ["Health protection", "Removes fear", "Spiritual healing", "Longevity"],
+    material: "Copper (gold polished)",
+    size: "6 x 6 inches"
+  },
+  {
+    id: 26,
+    name: "Sri Yantra (Meru)",
+    category: "Yantras",
+    price: 2199,
+    originalPrice: 2699,
+    description: "Sacred Sri Yantra for prosperity, spiritual elevation, and universal harmony.",
+    image: productImageMap[26],
+    rating: 5,
+    inStock: true,
+    benefits: ["Wealth & abundance", "Spiritual harmony", "Focus & meditation", "Removes obstacles"],
+    material: "Copper (gold polished)",
+    size: "7 x 7 inches"
+  },
+  {
+    id: 27,
+    name: "Lakshmi Yantra",
+    category: "Yantras",
+    price: 1299,
+    originalPrice: 1699,
+    description: "Yantra dedicated to Goddess Lakshmi for wealth, fortune, and material growth.",
+    image: productImageMap[27],
+    rating: 5,
+    inStock: true,
+    benefits: ["Attracts wealth", "Business growth", "Financial stability", "Blessings of Lakshmi"],
+    material: "Brass (gold polished)",
+    size: "5 x 5 inches"
+  },
+  {
+    id: 28,
+    name: "Ganesha Yantra",
+    category: "Yantras",
+    price: 999,
+    originalPrice: 1399,
+    description: "Sacred yantra invoking Lord Ganesha for removing obstacles and success in new beginnings.",
+    image: productImageMap[28],
+    rating: 4,
+    inStock: true,
+    benefits: ["Removes obstacles", "New beginnings", "Success in endeavors", "Mental clarity"],
+    material: "Pure Copper",
+    size: "5 x 5 inches"
+  },
+  {
+    id: 29,
+    name: "Kuber Yantra",
+    category: "Yantras",
+    price: 1599,
+    originalPrice: 1999,
+    description: "Yantra dedicated to Lord Kuber for wealth accumulation and financial stability.",
+    image: productImageMap[29],
+    rating: 5,
+    inStock: true,
+    benefits: ["Wealth accumulation", "Savings growth", "Business prosperity", "Financial protection"],
+    material: "Copper (gold polished)",
+    size: "6 x 6 inches"
+  },
+  {
+    id: 30,
+    name: "Saraswati Yantra",
+    category: "Yantras",
+    price: 899,
+    originalPrice: 1199,
+    description: "Yantra for excellence in education, arts, music, and intellectual pursuits.",
+    image: productImageMap[30],
+    rating: 4,
+    inStock: true,
+    benefits: ["Improves concentration", "Enhances memory", "Boosts creativity", "Academic success"],
+    material: "Pure Copper",
+    size: "5 x 5 inches"
+  },
+
+  // Vastu Products Category
+  {
+    id: 31,
+    name: "Vastu Purush Yantra (Brass)",
+    category: "Vastu",
+    price: 1599,
+    originalPrice: 1999,
+    description: "Sacred Vastu Purush yantra for balancing directional energies in home or office.",
+    image: productImageMap[31] || getPlaceholderImage("Vastu Purush", "Vastu"),
+    rating: 5,
+    inStock: true,
+    benefits: ["Directional balance", "Removes Vastu dosha", "Promotes harmony", "Stability & peace"],
+    material: "Brass (gold polished)",
+    size: "6 x 6 inches"
+  },
+  {
+    id: 32,
+    name: "Shri Vastu Dosh Nivaran Plate",
+    category: "Vastu",
+    price: 1899,
+    originalPrice: 2299,
+    description: "Multi-symbol plate combining Sri Yantra and directional symbols for holistic correction.",
+    image: productImageMap[32] || getPlaceholderImage("Dosh Nivaran", "Vastu"),
+    rating: 5,
+    inStock: true,
+    benefits: ["Neutralizes defects", "Improves prosperity", "Enhances positive flow", "Protective field"],
+    material: "Copper (gold polished)",
+    size: "8 x 8 inches"
+  },
+  {
+    id: 33,
+    name: "Vastu Pyramid Set (3 Layer)",
+    category: "Vastu",
+    price: 999,
+    originalPrice: 1299,
+    description: "Energy correction pyramid set for entrance, study, and workplace activation.",
+    image: productImageMap[33] || getPlaceholderImage("Pyramid Set", "Vastu"),
+    rating: 4,
+    inStock: true,
+    benefits: ["Energy amplification", "Corrects Vastu defects", "Improves concentration", "Shields negativity"],
+    material: "Plastic + Copper Coil",
+    size: "Standard"
+  },
+  {
+    id: 34,
+    name: "Brass Tortoise (Kurma) on Plate",
+    category: "Vastu",
+    price: 799,
+    originalPrice: 999,
+    description: "Symbol of stability and support; placed in North for career growth & longevity.",
+    image: productImageMap[34] || getPlaceholderImage("Brass Tortoise", "Vastu"),
+    rating: 4,
+    inStock: true,
+    benefits: ["Career growth", "Longevity", "Stability", "Wealth accumulation"],
+    material: "Brass",
+    size: "Medium"
+  },
+  {
+    id: 35,
+    name: "Nine Crystal Grid (Navratna Vastu Set)",
+    category: "Vastu",
+    price: 1399,
+    originalPrice: 1799,
+    description: "Arranged nine-energy crystal grid aligning planetary and directional forces.",
+    image: productImageMap[35] || getPlaceholderImage("Crystal Grid", "Vastu"),
+    rating: 5,
+    inStock: true,
+    benefits: ["Balances nine planets", "Enhances harmony", "Protects aura", "Improves success"],
+    material: "Natural Crystals",
+    size: "8 x 8 inches"
+  },
+  {
+    id: 36,
+    name: "Brass Door Hanging (Om Swastik)",
+    category: "Vastu",
+    price: 599,
+    originalPrice: 799,
+    description: "Traditional Om + Swastik protective symbol for auspicious entrance energy.",
+    image: productImageMap[36] || getPlaceholderImage("Om Swastik", "Vastu"),
+    rating: 4,
+    inStock: true,
+    benefits: ["Removes negative entry", "Welcomes prosperity", "Purifies ambience", "Spiritual protection"],
+    material: "Brass",
+    size: "Standard"
   }
 ];
 

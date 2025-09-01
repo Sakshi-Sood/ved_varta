@@ -11,7 +11,8 @@ export const getPlaceholderImage = (productName, category) => {
     "Gemstones": { bg: "FFB84D", text: "FFFFFF" }, // Amber
     "Rudraksha": { bg: "8B4513", text: "FFFFFF" }, // Saddle Brown
     "Bracelets": { bg: "DAA520", text: "FFFFFF" }, // Goldenrod
-    "Pendants": { bg: "CD7F32", text: "FFFFFF" }   // Bronze
+    "Pendants": { bg: "CD7F32", text: "FFFFFF" },  // Bronze
+    "Yantras" : { bg: "4682B4", text: "FFFFFF" } // Steel Blue
   };
 
   const colors = categoryColors[category] || { bg: "FFA500", text: "FFFFFF" };
@@ -28,34 +29,52 @@ export const getRandomProductImage = (seed) => {
 // Map of product IDs to specific placeholder images
 export const productImageMap = {
   // Gemstones
-  1: "https://images.unsplash.com/photo-1606318801954-d46d46d3360a?w=400&h=400&fit=crop", // Yellow crystal
-  2: "https://images.unsplash.com/photo-1609205807490-6d1b2d062dc2?w=400&h=400&fit=crop", // Blue crystal
-  3: "https://images.unsplash.com/photo-1601121141418-c1caa10a2a0b?w=400&h=400&fit=crop", // Green crystal
-  4: "https://images.unsplash.com/photo-1609205807491-d23d3e49ce6f?w=400&h=400&fit=crop", // Red crystal
-  5: "https://images.unsplash.com/photo-1599643478518-a784e5d60b28?w=400&h=400&fit=crop", // Pearl
-  6: "https://images.unsplash.com/photo-1602751584552-8b5264b3fd79?w=400&h=400&fit=crop", // Coral
-  
+  1: "/images/pukhraj.jpg", // Pukhraj (Yellow Sapphire)
+  2: "/images/neelam.jpg", // Blue crystal
+  3: "/images/panna.jpg", // Green crystal
+  4: "/images/ruby.jpg", // Red crystal
+  5: "/images/pearl.jpg", // Pearl
+  6: "/images/moonga.jpg", // Coral
+
   // Rudraksha
-  7: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop", // Prayer beads
-  8: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop",
-  9: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop",
-  10: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop",
-  11: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop",
-  12: "https://images.unsplash.com/photo-1599100863829-78e1377f5595?w=400&h=400&fit=crop",
-  
+  7: "/images/5Mukhi.png", // Prayer beads
+  8: "/images/gauriShankar.png",
+  9: "/images/1Mukhi.jpeg",
+  10: "/images/7Mukhi.png",
+  11: "/images/9Mukhi.png",
+  12: "/images/11Mukhi.jpg",
+
   // Bracelets
-  13: "https://images.unsplash.com/photo-1611652022419-a9419f74565a?w=400&h=400&fit=crop", // Bracelet
-  14: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&h=400&fit=crop", 
-  15: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&h=400&fit=crop",
-  16: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&h=400&fit=crop",
-  17: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&h=400&fit=crop",
-  18: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&h=400&fit=crop",
-  
+  13: "/images/seven_chakra.jpg", // Bracelet
+  14: "/images/tiger_eye.jpg",
+  15: "/images/Gold_Plated_Rudraksha_Bracelet.jpg",
+  16: "/images/black_tourmaline.jpg",
+  17: "/images/pyrite_bracelete.jpg",
+  18: "/images/rose_quartz.jpg",
+
   // Pendants
-  19: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop", // Pendant
-  20: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop",
-  21: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop",
-  22: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop",
-  23: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop",
-  24: "https://images.unsplash.com/photo-1599643478069-55b2264b30e6?w=400&h=400&fit=crop"
+  19: "/images/om_pendant.jpg", // Pendant
+  20: "/images/shri_yantra_pendant.jpg",
+  21: "/images/hanuman_pendant.jpg",
+  22: "/images/ganesha_pendant.jpg",
+  23: "/images/evil_eye_pendant.png",
+  24: "/images/trishul_pendant.jpg",
+
+// Yantras
+
+  25: "/images/yantra1.jpg",
+  26: "/images/yantra2.jpg",
+  27: "/images/yantra3.png",
+  28: "/images/yantra4.jpg",
+  29: "/images/yantra5.jpg",
+  30: "/images/yantra6.jpg",
+
+  // Vastu
+
+  31: "/images/vastu1.jpg",
+  32: "/images/vastu2.jpg",
+  33: "/images/vastu3.jpg",
+  34: "/images/vastu4.jpg",
+  35: "/images/vastu5.jpg",
+  36: "/images/vastu6.jpg"
 };
