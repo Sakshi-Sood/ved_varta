@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./Button";
+import { navLinks } from "@/sections/Navbar";
 
 const socialLinks = [
   { href: "#", label: "Instagram", icon: "fab fa-instagram" },
@@ -28,12 +29,6 @@ const problemLinks = [
   { href: "/problems/family-disputes", text: "Family Disputes" },
 ];
 
-const policyLinks = [
-  { href: "/privacy-policy", text: "Privacy Policy" },
-  { href: "/terms-of-service", text: "Terms of Service" },
-  { href: "/contact", text: "Contact" },
-];
-
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-t from-orange-200 to-amber-200 border-t-2 border-amber-300">
@@ -41,7 +36,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <Image
                 src="/images/logo.png"
                 alt="VedVarta Logo"
@@ -49,7 +44,7 @@ const Footer = () => {
                 height={40}
                 className="rounded-lg"
               />
-              <h3 className="text-2xl font-bold text-amber-700">VedVarta</h3>
+              <h3 className="text-2xl font-bold text-amber-600">VedVarta</h3>
             </div>
             <p className="text-gray-700 mb-3 text-sm">
               Your trusted guide to ancient Vedic wisdom. Discover solutions to
@@ -73,7 +68,7 @@ const Footer = () => {
 
           {/* Services Section */}
           <div>
-            <h4 className="text-md font-semibold text-gray-800 mb-4">
+            <h4 className="text-md font-semibold text-gray-800 mb-3">
               Services
             </h4>
             <ul className="space-y-1 text-sm">
@@ -92,7 +87,7 @@ const Footer = () => {
 
           {/* Problems We Solve Section */}
           <div>
-            <h4 className="text-md font-semibold text-gray-800 mb-4">
+            <h4 className="text-md font-semibold text-gray-800 mb-3">
               Problems We Solve
             </h4>
             <ul className="space-y-1 text-sm">
@@ -109,16 +104,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Daily Guidance Section */}
           <div>
-            <h4 className="text-md font-semibold text-gray-800 mb-4">
-              Daily Guidance
+            <h4 className="text-md font-semibold text-gray-800 mb-3">
+              Contact Us
             </h4>
             <p className="text-gray-600 mb-6 text-sm">
-              Get daily horoscopes and Vedic wisdom delivered to your inbox.
+              Get in touch with us for personalized guidance and support.
             </p>
 
-            {/* WhatsApp Contact Button */}
             <Link
               href="https://wa.me/+919090252584"
               target="_blank"
@@ -140,23 +133,18 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <div className="flex items-center gap-2 text-gray-600">
-            <span>© 2025 VedVarta. All rights reserved.</span>
-            <span className="flex items-center gap-1">
-              <i className="fas fa-om text-amber-600" aria-hidden="true"></i>
-              Made with divine blessings
-              <i className="fas fa-sun text-yellow-500" aria-hidden="true"></i>
-            </span>
+          <div className="text-gray-600">
+            © 2025 VedVarta. All rights reserved.
           </div>
 
           <div className="flex gap-6 text-sm">
-            {policyLinks.map(({ href, text }) => (
+            {navLinks.map(({ href, name }) => (
               <Link
                 key={href}
                 href={href}
                 className="text-gray-600 hover:text-amber-600 transition-colors"
               >
-                {text}
+                {name}
               </Link>
             ))}
           </div>
