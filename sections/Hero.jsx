@@ -1,6 +1,11 @@
+import BannerCarousel from "@/components/BannerCarousel";
+import { homeBanners } from "@/data/banner";
+
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-br from-amber-200/70 via-yellow-200/50 to-amber-200/70"></section>
+    <section className="mb-20">
+      <BannerCarousel banners={homeBanners} />
+    </section>
   );
 };
 
