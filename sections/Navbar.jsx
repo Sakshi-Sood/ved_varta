@@ -5,7 +5,7 @@ import Image from "next/image";
 import Button from "../components/Button";
 import Link from "next/link";
 
-const navLinks = [
+export const navLinks = [
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
   { name: "Services", href: "/services" },
