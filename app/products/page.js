@@ -33,7 +33,7 @@ const ProductsPage = () => {
         <BannerCarousel banners={productBanners} />
       </section>
       {/* Hero Section */}
-      <section className="relative px-6 py-16 lg:px-20">
+      <section className="relative px-6 py-6 lg:py-12 lg:px-15">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Divine Astro Products
@@ -70,10 +70,10 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="px-6 lg:px-20 pb-16">
+      <section className="px-6 lg:px-20 pb-10">
         <div className="max-w-7xl mx-auto">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -107,18 +107,18 @@ const ProductsPage = () => {
           <p className="text-gray-700 mb-6">
             Our expert Acharya Anoop Tripathi can help you find the perfect product based on your birth chart
           </p>
-           <div className="flex justify-center space-x-4">
-        <Link href="tel:+919090252584">
-          <Button text="Book Consultation" fill />
-        </Link>
-        <Link
-          href="https://wa.me/+919090252584"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button text="WhatsApp Us" />
-        </Link>
-      </div>
+          <div className="flex justify-center space-x-4">
+            <Link href="tel:+919090252584">
+              <Button text="Book Consultation" fill />
+            </Link>
+            <Link
+              href="https://wa.me/+919090252584"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button text="WhatsApp Us" />
+            </Link>
+          </div>
         </div>
       </section>
     </main>

@@ -15,15 +15,15 @@ const ProductCard = ({ product }) => {
           alt={name}
           width={300}
           height={300}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full xl:object-fill object-contain group-hover:scale-105 transition-transform duration-500"
         />
       </div>
       {/* Details */}
-      <div className="p-5">
+      <div className="p-2 md:p-5">
         <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold mb-3">
           {category}
         </span>
-        <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+        <h3 className="text-md md:text-lg font-bold text-gray-800 mb-2 line-clamp-2">
           {name}
         </h3>
         <p className="text-gray-600 text-sm line-clamp-3">{description}</p>

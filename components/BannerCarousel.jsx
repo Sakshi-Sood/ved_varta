@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const AUTO_PLAY_MS = 4000;
 
@@ -50,72 +51,69 @@ export default function BannerCarousel({ banners = [] }) {
   }
 
   return (
-    <div className="pt-4 px-2 sm:pt-8 sm:px-4 lg:pt-12 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto pt-5 md:pt-8 px-3 md:px-6">
+      <div
+        className="relative overflow-hidden group rounded-xl md:rounded-4xl"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <div
-          className="relative overflow-hidden group rounded-xl sm:rounded-2xl shadow-md ring-1 ring-amber-300/40 bg-amber-50/40"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          className="flex transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
         >
-          <div
-            className="flex transition-transform duration-700 ease-out"
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            {banners.map((b, i) => (
-              <div
-                key={b.src}
-                className="min-w-full relative h-48 sm:h-56 md:h-72 lg:h-80 xl:h-96"
-              >
-                <Image
-                  src={b.src}
-                  alt={b.alt}
-                  fill
-                  priority={i === 0}
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 100vw, 1280px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
-              </div>
-            ))}
-          </div>
-
-          {/* Nav Buttons */}
-          <button
-            aria-label="Previous banner"
-            onClick={prev}
-            className="absolute top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
-          >
-            <i
-              className="fas fa-chevron-left text-sm sm:text-lg"
-              aria-hidden="true"
-            ></i>
-          </button>
-          <button
-            aria-label="Next banner"
-            onClick={next}
-            className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
-          >
-            <i
-              className="fas fa-chevron-right text-sm sm:text-lg"
-              aria-hidden="true"
-            ></i>
-          </button>
-
-          {/* Indicators */}
-          <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
-            {banners.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Go to banner ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-all ${
-                  i === index
-                    ? "bg-white w-4 sm:w-6"
-                    : "bg-white/50 hover:bg-white/80"
-                }`}
+          {banners.map((b, i) => (
+            <Link
+              href="/contact"
+              key={b.src}
+              className="min-w-full relative h-36 sm:h-56 md:h-72 lg:h-80 xl:h-96"
+            >
+              <Image
+                src={b.src}
+                alt={b.alt}
+                fill
+                priority={i === 0}
+                className="object-cover md:object-contain"
               />
-            ))}
-          </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Nav Buttons */}
+        <button
+          aria-label="Previous banner"
+          onClick={prev}
+          className="absolute top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
+        >
+          <i
+            className="fas fa-chevron-left text-sm sm:text-lg"
+            aria-hidden="true"
+          ></i>
+        </button>
+        <button
+          aria-label="Next banner"
+          onClick={next}
+          className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
+        >
+          <i
+            className="fas fa-chevron-right text-sm sm:text-lg"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+        {/* Indicators */}
+        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
+          {banners.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to banner ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-all cursor-pointer ${
+                i === index
+                  ? "bg-amber-500 w-4 sm:w-6"
+                  : "bg-amber-400/60 hover:bg-amber-400/80"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>

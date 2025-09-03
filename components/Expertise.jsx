@@ -5,7 +5,7 @@ import Link from "next/link";
 const Expertise = () => {
   return (
     <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl py-6 px-4 sm:py-8 sm:px-6 lg:py-10 lg:px-12 shadow-lg max-w-7xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl font-bold textGradient mb-4 sm:mb-6 text-center">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold textGradient mb-4 sm:mb-6 text-center">
         Services we provide!
       </h2>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
