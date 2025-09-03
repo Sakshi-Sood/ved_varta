@@ -127,9 +127,6 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Areas of Expertise */}
-            <Expertise />
-
             <CTA />
           </div>
         </div>
