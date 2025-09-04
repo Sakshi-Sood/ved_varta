@@ -3,7 +3,7 @@ import { homeBanners } from "@/data/banner";
 
 const Hero = () => {
   return (
-    <section className="mb-10 md:mb-20">
+    <section className="mb-10 md:mb-15">
       <BannerCarousel banners={homeBanners} />
     </section>
   );
