@@ -82,7 +82,7 @@ export default function BannerCarousel({ banners = [] }) {
         <button
           aria-label="Previous banner"
           onClick={prev}
-          className="absolute top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
+          className="absolute flex justify-center items-center top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 w-10 h-10 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition cursor-pointer"
         >
           <i
             className="fas fa-chevron-left text-sm sm:text-lg"
@@ -92,7 +92,7 @@ export default function BannerCarousel({ banners = [] }) {
         <button
           aria-label="Next banner"
           onClick={next}
-          className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition"
+          className="absolute flex justify-center items-center top-1/2 -translate-y-1/2 right-1 sm:right-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 w-10 h-10 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition cursor-pointer"
         >
           <i
             className="fas fa-chevron-right text-sm sm:text-lg"
@@ -101,7 +101,7 @@ export default function BannerCarousel({ banners = [] }) {
         </button>
 
         {/* Indicators */}
-        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
           {banners.map((_, i) => (
             <button
               key={i}
@@ -110,7 +110,7 @@ export default function BannerCarousel({ banners = [] }) {
               className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-all cursor-pointer ${
                 i === index
                   ? "bg-amber-500 w-4 sm:w-6"
-                  : "bg-amber-400/60 hover:bg-amber-400/80"
+                  : "bg-amber-400/70 hover:bg-amber-400/90"
               }`}
             />
           ))}
