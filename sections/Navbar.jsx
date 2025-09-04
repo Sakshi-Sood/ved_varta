@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../components/Button";
 import Link from "next/link";
@@ -16,19 +16,82 @@ export const navLinks = [
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Visibility control for hide-on-scroll-down / show-on-scroll-up
+  const [isVisible, setIsVisible] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  const SCROLL_UP_THRESHOLD = 10; // px: how much user must scroll up to show
+  const SCROLL_DOWN_THRESHOLD = 10; // px: how much user must scroll down to hide
+  const MIN_SCROLL_TO_HIDE = 60; // px: don't hide for small scrolls near top
+
+  useEffect(() => {
+    // Make sure this runs only in client
+    if (typeof window === "undefined") return;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      // quick top check
+      if (currentY <= 0) {
+        // at very top: always show and treat as "at top"
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const delta = currentY - lastScrollY.current;
+
+          // If at very top, always show
+          if (currentY <= 0) {
+            setIsVisible(true);
+          } else if (
+            delta > SCROLL_DOWN_THRESHOLD &&
+            currentY > MIN_SCROLL_TO_HIDE
+          ) {
+            // scrolling down and passed minimum distance -> hide
+            setIsVisible(false);
+          } else if (lastScrollY.current - currentY > SCROLL_UP_THRESHOLD) {
+            // scrolled up enough -> show
+            setIsVisible(true);
+          }
+          lastScrollY.current = currentY;
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((s) => !s);
+    // when opening mobile menu, ensure navbar visible
+    setIsVisible(true);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // dynamic classes: translate out when hidden, show shadow/background when not at top
+  const navBase = `sticky top-0 z-50 transform transition-transform duration-300`;
+  const navTranslate = isVisible ? "translate-y-0" : "-translate-y-full";
+  const navBg = isMobileMenuOpen
+    ? "bg-amber-100"
+    : isAtTop
+    ? "bg-gray-100 shadow-none"
+    : "bg-white/95 shadow-sm";
+
   return (
     <nav
-      className={`sticky top-0 px-4 sm:px-6 lg:px-8 py-4 z-50 shadow-sm ${
-        isMobileMenuOpen ? "bg-amber-100" : "bg-gray-100 shadow-none"
-      }`}
+      className={`${navBase} ${navTranslate} ${navBg} px-4 sm:px-6 lg:px-8 py-4`}
     >
       <div className="flex justify-between items-center">
         {/* Logo */}
