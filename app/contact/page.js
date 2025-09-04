@@ -14,17 +14,15 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-200/70 via-yellow-200/50 to-amber-200/70">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-amber-400/70 via-orange-400 to-amber-400/70 text-white py-8">
+      <div className="bg-gradient-to-r from-amber-400/70 via-orange-400 to-amber-400/70 text-white py-4 md:py-8">
         <div className="container mx-auto px-4 text-center">
-          <div className="mb-3">
-            <span className="inline-flex items-center px-4 py-2 bg-white/25 rounded-full text-sm font-semibold">
-              Meet Our Expert
-            </span>
-          </div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-2">
+          <span className="inline-flex items-center px-4 py-2 bg-white/25 rounded-full text-sm font-semibold mb-2 md:mb-3">
+            Meet Our Expert
+          </span>
+          <h1 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">
             Acharya Anoop Tripathi
           </h1>
-          <p className="text-lg lg:text-xl max-w-3xl mx-auto">
+          <p className="lg:text-lg max-w-3xl mx-auto text-balance">
             Renowned Vedic Astrologer, Vastu Expert & Spiritual Guide
           </p>
         </div>
@@ -97,20 +95,20 @@ const ContactPage = () => {
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {stats.map((stat, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 text-center shadow-md">
-                  <div className="text-2xl font-bold text-orange-400 mb-2">
+                  <div className="text-2xl md:text-3xl font-bold text-orange-400 mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-xs md:text-sm font-semibold">{stat.label}</div>
+                  <div className="text-gray-600 text-sm md:text-base font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* About Section */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 text-center">
                 About Acharya Anoop Tripathi
               </h2>
-              <div className="space-y-3 text-gray-700 leading-relaxed text-md">
+              <div className="space-y-3 text-sm md:text-base text-gray-700 leading-relaxed">
                 <p>
                   Acharya Anoop is a highly esteemed practitioner specializing in Vedic Astrology, Vastu, Ashtakvarga, Palmistry, Face Reading, and Muhurta, with over a decade of experience guiding individuals towards clarity and harmony. His comprehensive expertise in these ancient disciplines offers a profound understanding of both celestial and terrestrial influences on life.
                 </p>
