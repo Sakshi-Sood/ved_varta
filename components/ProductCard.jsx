@@ -11,8 +11,6 @@ const ProductCard = ({ product }) => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const isMobile = window.innerWidth < 768;
-
   return (
     <>
       <div

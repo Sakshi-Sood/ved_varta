@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
+            <Link className="flex items-center gap-2 mb-3" href="/">
               <Image
                 src="/images/logo.png"
                 alt="VedVarta Logo"
@@ -45,7 +45,7 @@ const Footer = () => {
                 className="rounded-lg"
               />
               <h3 className="text-2xl font-bold text-amber-600">VedVarta</h3>
-            </div>
+            </Link>
             <p className="text-gray-700 mb-3 text-sm">
               Your trusted guide to ancient Vedic wisdom. Discover solutions to
               life's problems through professional astrology and spiritual
