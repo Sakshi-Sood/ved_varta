@@ -45,11 +45,11 @@ const BlogPreview = () => {
     <section className="py-16">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-3">
             <span className="textGradient">Vedic Wisdom</span> Blog
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
             Discover ancient Vedic insights, practical remedies, and
             astrological guidance to navigate life&apos;s journey with clarity
             and purpose.
@@ -57,7 +57,7 @@ const BlogPreview = () => {
         </div>
 
         {/* Blog Preview Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {blogPosts.map((blog) => (
             <BlogPreviewCard key={blog.id} blog={blog} />
           ))}
@@ -76,7 +76,7 @@ const BlogPreview = () => {
             />
           </Link>
 
-          <p className="text-gray-600 mt-4 text-sm">
+          <p className="text-gray-600 mt-3 text-sm">
             Explore our complete collection of Vedic astrology insights and
             remedies
           </p>
