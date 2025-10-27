@@ -224,7 +224,7 @@ const Navbar = () => {
           </ul>
 
           <div className="space-y-4">
-            <Link href="/book" onClick={closeMobileMenu} className="block">
+            <Link href="/bookPuja" onClick={closeMobileMenu} className="block">
               <div className="w-full">
                 <Button
                   text="Book Pooja"

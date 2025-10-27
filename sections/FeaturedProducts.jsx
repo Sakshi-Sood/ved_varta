@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../components/Button";
 import { products } from "@/data/products";
-
+ 
 // Small, well-tested slider that pages by "itemsPerView" and never jumps past bounds.
 export default function FeaturedProducts() {
   // pick up to 12 items while trying to keep category diversity (keeps your original picker)
@@ -39,12 +39,12 @@ export default function FeaturedProducts() {
       if (!added) break;
       depth += 1;
     }
-
+ 
     return picked.slice(0, 12);
   };
-
+ 
   const featuredItems = useMemo(pickFeatured, []);
-
+ 
   // Responsive items per view
   const getItemsPerView = () =>
     typeof window !== "undefined" && window.innerWidth >= 1024 ? 3 : 2;
@@ -67,19 +67,19 @@ export default function FeaturedProducts() {
     }
     return out.length ? out : [[]];
   }, [featuredItems, itemsPerView]);
-
+ 
   const totalPages = pages.length;
   const [pageIndex, setPageIndex] = useState(0);
-
+ 
   // Clamp pageIndex when responsive changes
   useEffect(() => {
     if (pageIndex >= totalPages) setPageIndex(totalPages - 1);
   }, [totalPages, pageIndex]);
-
+ 
   // autoplay
   const [isPaused, setIsPaused] = useState(false);
   const autoplayRef = useRef(null);
-
+ 
   const next = useCallback(
     () => setPageIndex((p) => (p + 1) % totalPages),
     [totalPages]
@@ -88,7 +88,7 @@ export default function FeaturedProducts() {
     () => setPageIndex((p) => (p - 1 + totalPages) % totalPages),
     [totalPages]
   );
-
+ 
   useEffect(() => {
     if (isPaused || totalPages <= 1) return;
     autoplayRef.current = window.setInterval(() => next(), 4000);
@@ -97,10 +97,10 @@ export default function FeaturedProducts() {
       autoplayRef.current = null;
     };
   }, [isPaused, next, totalPages]);
-
+ 
   // Build track transform: track width = totalPages * 100% and we move by (pageIndex * (100 / totalPages))% of track
   const trackTranslate = `${-(pageIndex * (100 / totalPages))}%`;
-
+ 
   return (
     <section className="py-16 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
@@ -113,9 +113,9 @@ export default function FeaturedProducts() {
             energy and bring positive transformations.
           </p>
         </div>
-
+ 
         <div
-          className="relative bg-gradient-to-br from-white/60 to-amber-50/80 rounded-2xl p-8 shadow-lg border border-amber-200/50 group"
+          className="relative bg-gradient-to-br from-white/60 to-amber-50/80 rounded-2xl p-4 shadow-lg border border-amber-200/50 group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -146,7 +146,7 @@ export default function FeaturedProducts() {
                             src={product.image}
                             alt={product.name}
                             fill
-                            className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                            className="object-contain mask-clip-content group-hover/card:scale-105 transition-transform duration-500"
                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                           />
                           <div className="absolute top-2 left-2">
@@ -155,18 +155,18 @@ export default function FeaturedProducts() {
                             </span>
                           </div>
                         </div>
-
-                        <div className="p-4">
-                          <h3 className="text-base font-bold text-gray-800 mb-2 line-clamp-2 group-hover/card:text-amber-600 transition-colors">
+ 
+                        <div className="p-2 md:p-4">
+                          <h3 className="text-sm font-bold text-gray-800 mb-2 group-hover/card:text-amber-600 transition-colors">
                             {product.name}
                           </h3>
-                          <p className="text-gray-600 text-sm line-clamp-3">
+                          <p className="text-gray-600 text-sm hidden lg:block">
                             {product.description}
                           </p>
                         </div>
                       </article>
                     ))}
-
+ 
                     {/* If a page has fewer items than itemsPerView, render empty placeholders to keep layout stable */}
                     {Array.from({
                       length: Math.max(0, itemsPerView - page.length),
@@ -178,7 +178,7 @@ export default function FeaturedProducts() {
               ))}
             </div>
           </div>
-
+ 
           {/* arrows */}
           {totalPages > 1 && (
             <>
@@ -200,7 +200,7 @@ export default function FeaturedProducts() {
                   />
                 </svg>
               </button>
-
+ 
               <button
                 onClick={next}
                 className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-amber-600/90 hover:bg-amber-600 text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10 cursor-pointer"
@@ -221,9 +221,9 @@ export default function FeaturedProducts() {
               </button>
             </>
           )}
-
+ 
           {/* indicators */}
-          <div className="flex justify-center mt-6 gap-2">
+          <div className="flex justify-center mt-3 gap-2">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
@@ -238,7 +238,7 @@ export default function FeaturedProducts() {
             ))}
           </div>
         </div>
-
+ 
         <div className="flex justify-center mt-8">
           <Link href="/products">
             <Button
