@@ -127,7 +127,7 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden lg:flex space-x-4">
-            <Link href="/book">
+            <Link href="/bookPuja">
               <Button
                 text="Book Pooja"
                 icon={
