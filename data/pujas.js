@@ -5,7 +5,7 @@ export const pujasData = [
     category: "Ceremonies",
     shortDescription: "Harmonize your space with positive energies",
     fullDescription: "Vastu Shanti Pooja is performed to remove negative energies and doshas from your home or workplace. This sacred ritual brings peace, prosperity, and positive vibrations to your living or working space.",
-    image: "/images/vastu1.jpg",
+    image: "/images/vastupuja.png",
     duration: "3-4 hours",
     benefits: [
       "Removes Vastu doshas",
@@ -34,7 +34,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Truth, prosperity, and fulfillment",
     fullDescription: "Satyanarayan Katha Pooja is performed to honor Lord Vishnu and seek truth, prosperity, and fulfillment of desires. This sacred ritual brings peace, happiness, and material abundance to the family.",
-    image: "/images/yantra5.jpg",
+    image: "/images/satyaNarayan.jpg",
     duration: "2-3 hours",
     benefits: [
       "Truth and righteousness",
@@ -59,31 +59,31 @@ export const pujasData = [
   },
   {
     id: 3,
-    name: "Marriage Pooja",
-    category: "Ceremonies",
-    shortDescription: "Sacred wedding ceremony and blessings",
-    fullDescription: "Marriage Pooja encompasses all the sacred rituals performed during a Hindu wedding ceremony. This comprehensive puja ensures divine blessings for the couple's harmonious married life and prosperity.",
-    image: "/images/yantra2.jpg",
-    duration: "4-6 hours",
+    name: "Baglamukhi Puja",
+    category: "Protection",
+    shortDescription: "Victory over enemies and negative forces",
+    fullDescription: "Baglamukhi Puja is performed to invoke the blessings of Goddess Baglamukhi, who has the power to paralyze enemies and negative forces. This powerful ritual provides protection from adversaries, helps win legal battles, and removes obstacles caused by malicious intentions.",
+    image: "/images/baglamukhi_puja.png",
+    duration: "3-4 hours",
     benefits: [
-      "Divine blessings for couple",
-      "Harmonious married life",
-      "Family prosperity",
-      "Removal of obstacles",
-      "Auspicious beginning"
+      "Victory over enemies",
+      "Protection from evil forces",
+      "Success in legal matters",
+      "Paralyzes negative intentions",
+      "Removes malicious obstacles"
     ],
     items_included: [
-      "Sacred fire setup",
-      "Wedding rituals materials",
-      "Flowers and garlands",
-      "Traditional offerings",
-      "Complete ceremony setup"
+      "Yellow flowers and cloth",
+      "Turmeric and sandalwood",
+      "Sacred yantra",
+      "Special mantras chanting",
+      "Protective offerings"
     ],
     price: {
-      basic: "₹8,100",
-      premium: "₹16,100"
+      basic: "₹6,100",
+      premium: "₹12,100"
     },
-    occasions: ["Wedding ceremony", "Marriage blessing", "Sacred union"],
+    occasions: ["Legal battles", "Enemy problems", "Protection needs", "Court cases"],
     popular: true
   },
   {
@@ -92,7 +92,7 @@ export const pujasData = [
     category: "Planetary",
     shortDescription: "Balance planetary influences",
     fullDescription: "Navagraha Pooja is performed to balance the effects of nine planets in your horoscope. This comprehensive ritual helps reduce malefic planetary effects and enhances positive influences in your life.",
-    image: "/images/yantra3.png",
+    image: "/images/navgrahaPuja.jpg",
     duration: "3-4 hours",
     benefits: [
       "Planetary doshas removal",
@@ -121,7 +121,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Honor and appease ancestors",
     fullDescription: "Pitru Pooja is performed to honor ancestors and seek their blessings. This sacred ritual helps remove Pitru Dosha and brings peace to departed souls while ensuring prosperity for the family.",
-    image: "/images/yantra4.jpg",
+    image: "/images/pitrupaksha.jpg",
     duration: "2-3 hours",
     benefits: [
       "Pitru Dosha removal",
@@ -150,7 +150,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Remove obstacles and bring good fortune",
     fullDescription: "Lord Ganesh Pooja is performed to remove obstacles, bring wisdom, and ensure success in new ventures. This powerful ritual helps overcome challenges and attracts prosperity into your life.",
-    image: "/images/ganesha_pendant.jpg",
+    image: "/images/ganesh_puja.jpg",
     duration: "2-3 hours",
     benefits: [
       "Removal of obstacles",
@@ -179,7 +179,7 @@ export const pujasData = [
     category: "Prosperity",
     shortDescription: "Attract wealth and prosperity",
     fullDescription: "Goddess Laxmi Pooja is performed to attract wealth, prosperity, and abundance. This sacred ritual invokes the blessings of the goddess of wealth for financial stability and growth.",
-    image: "/images/yantra1.jpg",
+    image: "/images/lakshmiPooja.jpg",
     duration: "2-3 hours",
     benefits: [
       "Financial prosperity",
@@ -208,7 +208,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Divine protection through sacred recitation",
     fullDescription: "Hanuman Chalisa Path involves the sacred recitation of 40 verses praising Lord Hanuman. This powerful prayer provides divine protection, strength, and removes obstacles from life.",
-    image: "/images/hanuman_pendant.jpg",
+    image: "/images/hanumanChalisa.jpg",
     duration: "1-2 hours",
     benefits: [
       "Divine protection",
@@ -237,7 +237,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Ultimate Shiva worship with abhishek",
     fullDescription: "Rudrabhishek is the most powerful form of Lord Shiva worship involving sacred bathing with various materials. This ritual brings immense spiritual benefits and divine grace.",
-    image: "/images/11Mukhi.jpg",
+    image: "/images/rudraAbhishek.png",
     duration: "3-4 hours",
     benefits: [
       "Ultimate spiritual purification",
@@ -266,7 +266,7 @@ export const pujasData = [
     category: "Spiritual",
     shortDescription: "Sacred recitation from Ramcharitmanas",
     fullDescription: "Sunderkand Path is the recitation of a chapter from Ramcharitmanas that describes Hanuman's journey to Lanka. This powerful recitation brings courage, removes obstacles, and ensures success.",
-    image: "/images/om_pendant.jpg",
+    image: "/images/sundarkand.jpg",
     duration: "2-3 hours",
     benefits: [
       "Obstacle removal",
@@ -295,7 +295,7 @@ export const pujasData = [
     category: "Health",
     shortDescription: "Powerful mantra for health and longevity",
     fullDescription: "Mahamrityunjay Jaap involves chanting of the powerful Mahamrityunjay mantra for health, healing, and longevity. This sacred practice provides divine protection from diseases and promotes overall well-being.",
-    image: "/images/7Mukhi.png",
+    image: "/images/mahamritunjya.jpg",
     duration: "2-4 hours",
     benefits: [
       "Health and healing",
@@ -324,7 +324,7 @@ export const pujasData = [
     category: "Ceremonies",
     shortDescription: "Sacred thread ceremony",
     fullDescription: "Yagnopavit Sanskar is the sacred thread ceremony marking the beginning of formal education and spiritual journey. This important ritual is one of the key sanskars in Hindu tradition.",
-    image: "/images/trishul_pendant.jpg",
+    image: "/images/yagnopavit.jpg",
     duration: "3-5 hours",
     benefits: [
       "Spiritual initiation",

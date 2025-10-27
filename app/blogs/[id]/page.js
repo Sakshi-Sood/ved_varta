@@ -1,3 +1,5 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -202,112 +204,162 @@ export default function BlogPost({ params }) {
     notFound();
   }
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: blog.title,
+        text: blog.excerpt,
+        url: window.location.href,
+      });
+    }
+  };
+
   return (
-    <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen">
-      {/* Header with Back Button */}
-      <div className="max-w-4xl mx-auto">
-        <Link
-          href="/blogs"
-          className="inline-flex items-center text-orange-500 hover:text-orange-600 font-semibold mt-4"
-        >
-          <i className="fas fa-arrow-left mr-2"></i>
-          Back to Blogs
-        </Link>
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-orange-50 to-amber-50">
+      {/* Back Navigation */}
+      <div className="bg-white/70 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Link 
+            href="/blogs"
+            className="text-amber-700 hover:text-amber-800 hover:bg-amber-50 inline-flex items-center px-4 py-2 rounded-lg transition-colors"
+          >
+            <i className="fas fa-arrow-left mr-2"></i>
+            Back to Blogs
+          </Link>
+        </div>
       </div>
 
-      <article className="px-10 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Article Header */}
-          <header className="mb-8">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {blog.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+      {/* Hero Section */}
+      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+        <Image
+          src={blog.image}
+          alt={blog.title}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+          <div className="max-w-4xl mx-auto">
+            <span className="bg-amber-500 text-white mb-4 text-sm px-3 py-1 rounded-full inline-block">
+              Vedic Astrology
+            </span>
+            <h1 className="text-white mb-4 text-3xl md:text-5xl font-bold">
               {blog.title}
             </h1>
-
-            <div className="flex items-center justify-between flex-wrap gap-4 text-gray-600 mb-6">
-              <div className="flex items-center">
-                <Image src="/images/acharyaAnoop.jpg"
-                  alt="Author Image"
-                  width={48}
-                  height={48} className="rounded-full object-cover mr-4"
-                />
-
-                <div>
-                  <p className="font-semibold text-gray-800">Acharya Anoop Tripathi</p>
-                  <div className="flex items-center text-sm">
-                    <span className="flex items-center mr-4">
-                      <i className="far fa-calendar-alt mr-2" aria-hidden="true"
-                      ></i>
-                      {blog.date}
-                    </span>
-                    <span className="flex items-center">
-                      <i className="far fa-clock mr-2" aria-hidden="true"
-                      ></i>
-                      {blog.readTime}
-                    </span>
-                  </div>
-                </div>
+            <div className="flex flex-wrap items-center gap-4 text-white/90 text-sm">
+              <div className="flex items-center gap-2">
+                <i className="fas fa-user"></i>
+                <span>{blog.author || "Acharya Anoop Tripathi"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-calendar"></i>
+                <span>{blog.date}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-clock"></i>
+                <span>{blog.readTime}</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden mb-8">
-              <Image
-                src={blog.image}
-                alt={blog.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </header>
-
-          {/* Article Content */}
-          <div className="bg-white/70 rounded-xl p-8 shadow-lg border border-amber-200">
-            <div
-              className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h4:text-lg prose-h4:font-semibold prose-h4:mb-2 prose-h4:mt-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-ul:text-gray-700 prose-li:mb-2 prose-strong:text-gray-800"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
-            />
+      {/* Content Section */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <article className="bg-white rounded-lg shadow-lg p-8 md:p-12 mb-8">
+          {/* Share Button */}
+          <div className="flex justify-end mb-8">
+            <button
+              onClick={handleShare}
+              className="border border-amber-300 text-amber-700 hover:bg-amber-50 px-4 py-2 rounded-lg inline-flex items-center transition-colors"
+            >
+              <i className="fas fa-share-alt mr-2"></i>
+              Share
+            </button>
           </div>
 
-          {/* Article Footer */}
-          <footer className="mt-12">
-            <div className="bg-white/50 rounded-xl p-8 border border-amber-200">
-              <h3 className="text-xl font-semibold mb-4 textGradient">
-                About the Author
-              </h3>
-              <div className="flex items-start">
-                <Image
-                  src="/images/acharyaAnoop.jpg"
-                  alt="Author Image"
-                  width={64}
-                  height={64}
-                  className="rounded-full object-cover mr-4"
-                />
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Acharya Anoop Tripathi</h4>
-                  <p className="text-gray-700">
-                    A renowned Vedic astrologer with over 15 years of experience in providing spiritual guidance
-                    and astrological remedies. Pandit Aditya specializes in birth chart analysis, career guidance,
-                    and relationship counseling using ancient Vedic wisdom.
-                  </p>
-                </div>
+          {/* Blog Content */}
+          <div 
+            className="prose prose-lg max-w-none text-gray-700"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+
+          {/* Tags */}
+          {blog.tags && blog.tags.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-amber-200">
+              <div className="flex items-center gap-2 flex-wrap">
+                <i className="fas fa-tag text-amber-600"></i>
+                <span className="text-gray-600 mr-2">Tags:</span>
+                {blog.tags.map((tag, index) => (
+                  <span 
+                    key={index} 
+                    className="border border-amber-300 text-amber-700 hover:bg-amber-50 px-3 py-1 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
+          )}
+        </article>
 
-            {/* Call to Action */}
-            <CTA />
-          </footer>
+        {/* Author Card */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-8 mb-12">
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+              {(blog.author || "A").charAt(0)}
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl mb-2 text-gray-800 font-semibold">{blog.author || "Acharya Anoop Tripathi"}</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Experienced Vedic astrologer and spiritual guide with 15+ years of expertise. 
+                Helped thousands of people bring positive changes to their lives through ancient wisdom.
+              </p>
+            </div>
+          </div>
         </div>
-      </article>
-    </main>
+
+        {/* CTA */}
+        <CTA />
+
+        {/* Related Blogs */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Related Articles</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {blogPosts
+              .filter(post => post.id !== blogId)
+              .slice(0, 2)
+              .map((relatedBlog) => (
+                <Link 
+                  key={relatedBlog.id}
+                  href={`/blogs/${relatedBlog.id}`}
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+                >
+                  <div className="relative h-48">
+                    <Image
+                      src={relatedBlog.image}
+                      alt={relatedBlog.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
+                      {relatedBlog.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm line-clamp-2">
+                      {relatedBlog.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 mt-4 text-sm text-gray-500">
+                      <i className="fas fa-clock"></i>
+                      <span>{relatedBlog.readTime}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
