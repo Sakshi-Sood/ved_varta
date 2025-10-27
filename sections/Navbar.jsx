@@ -37,7 +37,7 @@ const Navbar = () => {
           className="text-2xl font-bold flex items-center space-x-2"
         >
           <Image src="/images/logo.png" alt="Logo" width={60} height={60} />
-          <span className="text-orange-400">VedVarta</span>
+          <span className="text-amber-600">VedVarta</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -57,7 +57,7 @@ const Navbar = () => {
 
         {/* Desktop Buttons */}
         <div className="hidden lg:flex space-x-4">
-          <Link href="/book">
+          <Link href="/bookPuja">
             <Button
               text="Book Pooja"
               icon={
@@ -152,7 +152,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="space-y-4">
-            <Link href="/book" onClick={closeMobileMenu} className="block">
+            <Link href="/bookPuja" onClick={closeMobileMenu} className="block">
               <div className="w-full">
                 <Button
                   text="Book Pooja"
