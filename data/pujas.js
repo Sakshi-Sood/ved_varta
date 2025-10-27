@@ -1,300 +1,39 @@
 export const pujasData = [
   {
     id: 1,
-    name: "Ganesh Puja",
-    category: "Spiritual",
-    shortDescription: "Remove obstacles and bring good fortune",
-    fullDescription: "Lord Ganesh puja is performed to remove obstacles, bring wisdom, and ensure success in new ventures. This powerful ritual helps overcome challenges and attracts prosperity into your life.",
-    image: "/images/ganesha_pendant.jpg",
-    duration: "2-3 hours",
-    benefits: [
-      "Removal of obstacles",
-      "Success in new ventures",
-      "Enhanced wisdom and intelligence",
-      "Protection from negative energies",
-      "Prosperity and good fortune"
-    ],
-    items_included: [
-      "Fresh flowers and garlands",
-      "Fruits and sweets (Modak)",
-      "Incense and diyas",
-      "Sacred thread (Janeu)",
-      "Puja materials and offerings"
-    ],
-    price: {
-      basic: "₹2,100",
-      premium: "₹5,100"
-    },
-    occasions: ["New beginnings", "Business launch", "House warming", "Exam success"],
-    popular: true
-  },
-  {
-    id: 2,
-    name: "Lakshmi Puja",
-    category: "Prosperity",
-    shortDescription: "Attract wealth and prosperity",
-    fullDescription: "Goddess Lakshmi puja is performed to attract wealth, prosperity, and abundance. This sacred ritual invokes the blessings of the goddess of wealth for financial stability and growth.",
-    image: "/images/yantra1.jpg",
-    duration: "2-3 hours",
-    benefits: [
-      "Financial prosperity",
-      "Wealth accumulation",
-      "Business growth",
-      "Debt removal",
-      "Material abundance"
-    ],
-    items_included: [
-      "Lotus flowers",
-      "Gold coins and currency",
-      "Sweets and dry fruits",
-      "Red cloth and vermillion",
-      "Sacred lamps and offerings"
-    ],
-    price: {
-      basic: "₹3,100",
-      premium: "₹7,100"
-    },
-    occasions: ["Diwali", "Business prosperity", "New investments", "Financial crisis"],
-    popular: true
-  },
-  {
-    id: 3,
-    name: "Durga Puja",
-    category: "Protection",
-    shortDescription: "Divine protection and strength",
-    fullDescription: "Goddess Durga puja provides divine protection from negative forces and enemies. This powerful ritual invokes the warrior goddess for strength, courage, and victory over challenges.",
-    image: "/images/trishul_pendant.jpg",
+    name: "Vastu Shanti Pooja",
+    category: "Ceremonies",
+    shortDescription: "Harmonize your space with positive energies",
+    fullDescription: "Vastu Shanti Pooja is performed to remove negative energies and doshas from your home or workplace. This sacred ritual brings peace, prosperity, and positive vibrations to your living or working space.",
+    image: "/images/vastu1.jpg",
     duration: "3-4 hours",
     benefits: [
-      "Protection from enemies",
-      "Courage and strength",
-      "Victory over obstacles",
-      "Removal of negative energies",
-      "Family protection"
+      "Removes Vastu doshas",
+      "Brings positive energy",
+      "Ensures peace and harmony",
+      "Promotes prosperity",
+      "Protects from negativity"
     ],
     items_included: [
-      "Red flowers and hibiscus",
-      "Weapons symbols",
-      "Red cloth and sindoor",
-      "Coconut and rice",
-      "Sacred fire arrangements"
-    ],
-    price: {
-      basic: "₹4,100",
-      premium: "₹8,100"
-    },
-    occasions: ["Navratri", "Protection needs", "Legal issues", "Enemy problems"],
-    popular: false
-  },
-  {
-    id: 4,
-    name: "Saraswati Puja",
-    category: "Knowledge",
-    shortDescription: "Enhance wisdom and learning",
-    fullDescription: "Goddess Saraswati puja is performed for knowledge, wisdom, and artistic abilities. This ritual is especially beneficial for students, artists, and anyone seeking intellectual growth.",
-    image: "/images/yantra2.jpg",
-    duration: "2 hours",
-    benefits: [
-      "Enhanced learning ability",
-      "Academic success",
-      "Artistic development",
-      "Clear communication",
-      "Intellectual growth"
-    ],
-    items_included: [
-      "White flowers and lotus",
-      "Books and musical instruments",
-      "White cloth",
-      "Honey and milk",
-      "Educational materials"
-    ],
-    price: {
-      basic: "₹2,500",
-      premium: "₹5,500"
-    },
-    occasions: ["Vasant Panchami", "Exam preparation", "Learning new skills", "Student life"],
-    popular: true
-  },
-  {
-    id: 5,
-    name: "Hanuman Puja",
-    category: "Spiritual",
-    shortDescription: "Strength, courage, and devotion",
-    fullDescription: "Lord Hanuman puja provides immense strength, courage, and protection. This powerful ritual helps overcome fears, builds confidence, and provides divine protection.",
-    image: "/images/hanuman_pendant.jpg",
-    duration: "1.5-2 hours",
-    benefits: [
-      "Physical and mental strength",
-      "Courage and confidence",
-      "Protection from evil",
-      "Overcoming fears",
-      "Devotion and faith"
-    ],
-    items_included: [
-      "Sindoor and orange flowers",
-      "Hanuman Chalisa book",
-      "Sesame oil and sweets",
-      "Red cloth",
-      "Mace (Gada) symbol"
-    ],
-    price: {
-      basic: "₹1,800",
-      premium: "₹3,800"
-    },
-    occasions: ["Tuesday worship", "Strength needs", "Fear removal", "Protection"],
-    popular: false
-  },
-  {
-    id: 6,
-    name: "Shiva Puja",
-    category: "Spiritual",
-    shortDescription: "Divine transformation and blessings",
-    fullDescription: "Lord Shiva puja brings spiritual transformation, peace, and divine blessings. This sacred ritual helps in meditation, spiritual growth, and achieving inner peace.",
-    image: "/images/om_pendant.jpg",
-    duration: "2-3 hours",
-    benefits: [
-      "Spiritual transformation",
-      "Inner peace and calm",
-      "Meditation enhancement",
-      "Destruction of negativity",
-      "Divine consciousness"
-    ],
-    items_included: [
-      "Bel leaves and white flowers",
-      "Rudraksha beads",
-      "Milk and honey",
-      "Sacred ash (Vibhuti)",
-      "Shiva Lingam offerings"
-    ],
-    price: {
-      basic: "₹3,500",
-      premium: "₹7,500"
-    },
-    occasions: ["Mahashivratri", "Spiritual growth", "Meditation practice", "Peace"],
-    popular: true
-  },
-  {
-    id: 7,
-    name: "Navagraha Puja",
-    category: "Planetary",
-    shortDescription: "Balance planetary influences",
-    fullDescription: "Navagraha puja is performed to balance the effects of nine planets in your horoscope. This comprehensive ritual helps reduce malefic planetary effects and enhances positive influences.",
-    image: "/images/yantra3.png",
-    duration: "3-4 hours",
-    benefits: [
-      "Planetary doshas removal",
-      "Balanced cosmic energies",
-      "Improved luck and fortune",
-      "Health and prosperity",
-      "Life harmony"
-    ],
-    items_included: [
-      "Nine different grains",
-      "Colored flowers for each planet",
-      "Gemstones representation",
-      "Planet-specific offerings",
-      "Sacred fire ceremony"
+      "Kalash and coconut",
+      "Vastu purification items",
+      "Sacred fire setup",
+      "Puja materials",
+      "Blessing ceremonies"
     ],
     price: {
       basic: "₹5,100",
       premium: "₹11,100"
     },
-    occasions: ["Astrological remedies", "Planetary transitions", "Life challenges", "Horoscope issues"],
+    occasions: ["New home", "Office inauguration", "Renovation", "Vastu correction"],
     popular: true
   },
   {
-    id: 8,
-    name: "Kaal Sarp Dosh Puja",
-    category: "Remedial",
-    shortDescription: "Remove Kaal Sarp Dosha effects",
-    fullDescription: "Kaal Sarp Dosh puja is a specialized ritual to neutralize the malefic effects of Kaal Sarp Dosha in your horoscope. This powerful remedy brings relief from struggles and obstacles.",
-    image: "/images/yantra4.jpg",
-    duration: "4-5 hours",
-    benefits: [
-      "Kaal Sarp Dosha neutralization",
-      "Relief from struggles",
-      "Improved life flow",
-      "Obstacle removal",
-      "Peace and prosperity"
-    ],
-    items_included: [
-      "Silver snake idols",
-      "Special mantras chanting",
-      "Milk and water offerings",
-      "Energized yantra",
-      "Remedial fire ceremony"
-    ],
-    price: {
-      basic: "₹7,100",
-      premium: "₹15,100"
-    },
-    occasions: ["Horoscope analysis", "Life struggles", "Recurring problems", "Astrological remedy"],
-    popular: false
-  },
-  {
-    id: 9,
-    name: "Mahamrityunjay Puja",
-    category: "Health",
-    shortDescription: "Health and longevity blessings",
-    fullDescription: "Mahamrityunjay puja is performed for health, healing, and longevity. This powerful Shiva mantra ritual provides divine protection from diseases and promotes overall well-being.",
-    image: "/images/7Mukhi.png",
-    duration: "2-3 hours",
-    benefits: [
-      "Health and healing",
-      "Longevity and vitality",
-      "Disease protection",
-      "Recovery from illness",
-      "Life force enhancement"
-    ],
-    items_included: [
-      "Medicinal herbs",
-      "White flowers and sandalwood",
-      "Holy water (Ganga Jal)",
-      "Healing mantras",
-      "Protective amulets"
-    ],
-    price: {
-      basic: "₹4,500",
-      premium: "₹9,500"
-    },
-    occasions: ["Health issues", "Recovery prayers", "Longevity wishes", "Medical treatments"],
-    popular: false
-  },
-  {
-    id: 10,
-    name: "Griha Pravesh Puja",
-    category: "Ceremonies",
-    shortDescription: "Housewarming and blessing ceremony",
-    fullDescription: "Griha Pravesh puja is performed when entering a new home. This sacred ritual purifies the space, removes negative energies, and invokes divine blessings for happiness and prosperity.",
-    image: "/images/vastu1.jpg",
-    duration: "3-4 hours",
-    benefits: [
-      "Home purification",
-      "Negative energy removal",
-      "Family harmony",
-      "Prosperity in new home",
-      "Divine protection"
-    ],
-    items_included: [
-      "Kalash and coconut",
-      "Mango leaves and flowers",
-      "Sacred fire setup",
-      "Vastu purification items",
-      "Blessing ceremonies"
-    ],
-    price: {
-      basic: "₹3,500",
-      premium: "₹8,500"
-    },
-    occasions: ["New home", "House warming", "Relocation", "Home blessing"],
-    popular: true
-  },
-  {
-    id: 11,
-    name: "Satyanarayan Puja",
+    id: 2,
+    name: "Satyanarayan Katha Pooja",
     category: "Spiritual",
     shortDescription: "Truth, prosperity, and fulfillment",
-    fullDescription: "Satyanarayan puja is performed to honor Lord Vishnu and seek truth, prosperity, and fulfillment of desires. This sacred ritual brings peace, happiness, and material abundance.",
+    fullDescription: "Satyanarayan Katha Pooja is performed to honor Lord Vishnu and seek truth, prosperity, and fulfillment of desires. This sacred ritual brings peace, happiness, and material abundance to the family.",
     image: "/images/yantra5.jpg",
     duration: "2-3 hours",
     benefits: [
@@ -319,8 +58,182 @@ export const pujasData = [
     popular: true
   },
   {
-    id: 12,
-    name: "Rudrabhishek Puja",
+    id: 3,
+    name: "Marriage Pooja",
+    category: "Ceremonies",
+    shortDescription: "Sacred wedding ceremony and blessings",
+    fullDescription: "Marriage Pooja encompasses all the sacred rituals performed during a Hindu wedding ceremony. This comprehensive puja ensures divine blessings for the couple's harmonious married life and prosperity.",
+    image: "/images/yantra2.jpg",
+    duration: "4-6 hours",
+    benefits: [
+      "Divine blessings for couple",
+      "Harmonious married life",
+      "Family prosperity",
+      "Removal of obstacles",
+      "Auspicious beginning"
+    ],
+    items_included: [
+      "Sacred fire setup",
+      "Wedding rituals materials",
+      "Flowers and garlands",
+      "Traditional offerings",
+      "Complete ceremony setup"
+    ],
+    price: {
+      basic: "₹8,100",
+      premium: "₹16,100"
+    },
+    occasions: ["Wedding ceremony", "Marriage blessing", "Sacred union"],
+    popular: true
+  },
+  {
+    id: 4,
+    name: "Navagraha Pooja",
+    category: "Planetary",
+    shortDescription: "Balance planetary influences",
+    fullDescription: "Navagraha Pooja is performed to balance the effects of nine planets in your horoscope. This comprehensive ritual helps reduce malefic planetary effects and enhances positive influences in your life.",
+    image: "/images/yantra3.png",
+    duration: "3-4 hours",
+    benefits: [
+      "Planetary doshas removal",
+      "Balanced cosmic energies",
+      "Improved luck and fortune",
+      "Health and prosperity",
+      "Life harmony"
+    ],
+    items_included: [
+      "Nine different grains",
+      "Colored flowers for each planet",
+      "Gemstones representation",
+      "Planet-specific offerings",
+      "Sacred fire ceremony"
+    ],
+    price: {
+      basic: "₹5,100",
+      premium: "₹11,100"
+    },
+    occasions: ["Astrological remedies", "Planetary transitions", "Life challenges", "Horoscope issues"],
+    popular: true
+  },
+  {
+    id: 5,
+    name: "Pitru Pooja",
+    category: "Spiritual",
+    shortDescription: "Honor and appease ancestors",
+    fullDescription: "Pitru Pooja is performed to honor ancestors and seek their blessings. This sacred ritual helps remove Pitru Dosha and brings peace to departed souls while ensuring prosperity for the family.",
+    image: "/images/yantra4.jpg",
+    duration: "2-3 hours",
+    benefits: [
+      "Pitru Dosha removal",
+      "Ancestral blessings",
+      "Family peace",
+      "Prosperity and progress",
+      "Liberation of souls"
+    ],
+    items_included: [
+      "Black sesame seeds",
+      "Sacred offerings",
+      "Tarpan materials",
+      "Pind daan items",
+      "Purification rituals"
+    ],
+    price: {
+      basic: "₹3,500",
+      premium: "₹7,500"
+    },
+    occasions: ["Pitru Paksha", "Ancestral worship", "Dosha removal", "Shradh ceremony"],
+    popular: false
+  },
+  {
+    id: 6,
+    name: "Ganesh Pooja",
+    category: "Spiritual",
+    shortDescription: "Remove obstacles and bring good fortune",
+    fullDescription: "Lord Ganesh Pooja is performed to remove obstacles, bring wisdom, and ensure success in new ventures. This powerful ritual helps overcome challenges and attracts prosperity into your life.",
+    image: "/images/ganesha_pendant.jpg",
+    duration: "2-3 hours",
+    benefits: [
+      "Removal of obstacles",
+      "Success in new ventures",
+      "Enhanced wisdom and intelligence",
+      "Protection from negative energies",
+      "Prosperity and good fortune"
+    ],
+    items_included: [
+      "Fresh flowers and garlands",
+      "Fruits and sweets (Modak)",
+      "Incense and diyas",
+      "Sacred thread (Janeu)",
+      "Puja materials and offerings"
+    ],
+    price: {
+      basic: "₹2,100",
+      premium: "₹5,100"
+    },
+    occasions: ["New beginnings", "Business launch", "House warming", "Exam success"],
+    popular: true
+  },
+  {
+    id: 7,
+    name: "Laxmi Pooja",
+    category: "Prosperity",
+    shortDescription: "Attract wealth and prosperity",
+    fullDescription: "Goddess Laxmi Pooja is performed to attract wealth, prosperity, and abundance. This sacred ritual invokes the blessings of the goddess of wealth for financial stability and growth.",
+    image: "/images/yantra1.jpg",
+    duration: "2-3 hours",
+    benefits: [
+      "Financial prosperity",
+      "Wealth accumulation",
+      "Business growth",
+      "Debt removal",
+      "Material abundance"
+    ],
+    items_included: [
+      "Lotus flowers",
+      "Gold coins and currency",
+      "Sweets and dry fruits",
+      "Red cloth and vermillion",
+      "Sacred lamps and offerings"
+    ],
+    price: {
+      basic: "₹3,100",
+      premium: "₹7,100"
+    },
+    occasions: ["Diwali", "Business prosperity", "New investments", "Financial growth"],
+    popular: true
+  },
+  {
+    id: 8,
+    name: "Hanuman Chalisa Path",
+    category: "Spiritual",
+    shortDescription: "Divine protection through sacred recitation",
+    fullDescription: "Hanuman Chalisa Path involves the sacred recitation of 40 verses praising Lord Hanuman. This powerful prayer provides divine protection, strength, and removes obstacles from life.",
+    image: "/images/hanuman_pendant.jpg",
+    duration: "1-2 hours",
+    benefits: [
+      "Divine protection",
+      "Strength and courage",
+      "Obstacle removal",
+      "Mental peace",
+      "Spiritual growth"
+    ],
+    items_included: [
+      "Sindoor and flowers",
+      "Hanuman Chalisa book",
+      "Sesame oil",
+      "Prasad items",
+      "Sacred offerings"
+    ],
+    price: {
+      basic: "₹1,500",
+      premium: "₹3,500"
+    },
+    occasions: ["Tuesday worship", "Protection needs", "Regular devotion", "Spiritual practice"],
+    popular: false
+  },
+  {
+    id: 9,
+    name: "Rudrabhishek Pooja",
     category: "Spiritual",
     shortDescription: "Ultimate Shiva worship with abhishek",
     fullDescription: "Rudrabhishek is the most powerful form of Lord Shiva worship involving sacred bathing with various materials. This ritual brings immense spiritual benefits and divine grace.",
@@ -345,6 +258,93 @@ export const pujasData = [
       premium: "₹13,100"
     },
     occasions: ["Spiritual growth", "Major life events", "Divine blessings", "Transformation"],
+    popular: true
+  },
+  {
+    id: 10,
+    name: "Sunderkand Path",
+    category: "Spiritual",
+    shortDescription: "Sacred recitation from Ramcharitmanas",
+    fullDescription: "Sunderkand Path is the recitation of a chapter from Ramcharitmanas that describes Hanuman's journey to Lanka. This powerful recitation brings courage, removes obstacles, and ensures success.",
+    image: "/images/om_pendant.jpg",
+    duration: "2-3 hours",
+    benefits: [
+      "Obstacle removal",
+      "Courage and strength",
+      "Success in endeavors",
+      "Divine protection",
+      "Mental peace"
+    ],
+    items_included: [
+      "Ramcharitmanas book",
+      "Flowers and incense",
+      "Prasad materials",
+      "Sacred offerings",
+      "Devotional items"
+    ],
+    price: {
+      basic: "₹2,100",
+      premium: "₹4,500"
+    },
+    occasions: ["Obstacle removal", "Success prayers", "Regular devotion", "Spiritual growth"],
+    popular: false
+  },
+  {
+    id: 11,
+    name: "Mahamrityunjay Jaap",
+    category: "Health",
+    shortDescription: "Powerful mantra for health and longevity",
+    fullDescription: "Mahamrityunjay Jaap involves chanting of the powerful Mahamrityunjay mantra for health, healing, and longevity. This sacred practice provides divine protection from diseases and promotes overall well-being.",
+    image: "/images/7Mukhi.png",
+    duration: "2-4 hours",
+    benefits: [
+      "Health and healing",
+      "Longevity and vitality",
+      "Disease protection",
+      "Recovery from illness",
+      "Life force enhancement"
+    ],
+    items_included: [
+      "Medicinal herbs",
+      "White flowers and sandalwood",
+      "Holy water (Ganga Jal)",
+      "Healing mantras",
+      "Protective amulets"
+    ],
+    price: {
+      basic: "₹4,500",
+      premium: "₹9,500"
+    },
+    occasions: ["Health issues", "Recovery prayers", "Longevity wishes", "Medical treatments"],
+    popular: true
+  },
+  {
+    id: 12,
+    name: "Yagnopavit Sanskar",
+    category: "Ceremonies",
+    shortDescription: "Sacred thread ceremony",
+    fullDescription: "Yagnopavit Sanskar is the sacred thread ceremony marking the beginning of formal education and spiritual journey. This important ritual is one of the key sanskars in Hindu tradition.",
+    image: "/images/trishul_pendant.jpg",
+    duration: "3-5 hours",
+    benefits: [
+      "Spiritual initiation",
+      "Educational blessings",
+      "Cultural tradition",
+      "Divine protection",
+      "Life transformation"
+    ],
+    items_included: [
+      "Sacred thread (Janeu)",
+      "Vedic ritual materials",
+      "Sacred fire setup",
+      "Traditional offerings",
+      "Complete ceremony items"
+    ],
+    price: {
+      basic: "₹5,500",
+      premium: "₹12,100"
+    },
+    occasions: ["Coming of age", "Spiritual initiation", "Educational beginning", "Traditional ceremony"],
     popular: false
   }
 ];
