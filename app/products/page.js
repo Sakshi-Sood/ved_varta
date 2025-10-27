@@ -35,7 +35,7 @@ const ProductsPage = () => {
       {/* Hero Section */}
       <section className="relative px-6 py-6 lg:py-12 lg:px-15">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
             Divine Astro Products
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -44,7 +44,7 @@ const ProductsPage = () => {
           </p>
 
           {/* Category Quick Links */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
                 key={category}

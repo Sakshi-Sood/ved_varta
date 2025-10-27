@@ -1,12 +1,6 @@
 "use client";
- 
-import React, {
-  useEffect,
-  useMemo,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
+
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../components/Button";
@@ -25,12 +19,12 @@ export default function FeaturedProducts() {
       "Yantras",
     ];
     const picked = [];
- 
+
     for (const category of categories) {
       const list = products.filter((p) => p.category === category);
       if (list[0]) picked.push(list[0]);
     }
- 
+
     let depth = 1;
     while (picked.length < 12 && picked.length < products.length) {
       let added = false;
@@ -57,14 +51,14 @@ export default function FeaturedProducts() {
   const [itemsPerView, setItemsPerView] = useState(() =>
     typeof window !== "undefined" ? getItemsPerView() : 3
   );
- 
+
   useEffect(() => {
     const onResize = () => setItemsPerView(getItemsPerView());
     onResize();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
- 
+
   // Chunk items into pages where each page contains <= itemsPerView items
   const pages = useMemo(() => {
     const out = [];

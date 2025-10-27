@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const CTA = () => {
   return (
-    <div className="text-center mt-4 bg-white/50 rounded-lg p-8 border border-amber-200">
+    <div className="text-center mt-4 bg-white/50 rounded-xl p-8 border border-amber-200">
       <h3 className="text-2xl font-semibold mb-4 textGradient">
         Ready to Transform Your Life?
       </h3>

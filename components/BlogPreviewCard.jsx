@@ -11,8 +11,8 @@ const BlogPreviewCard = ({ blog }) => {
           fill
           className="object-cover hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute top-4 left-4">
-          <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute top-3 left-3">
+          <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
             {blog.tags[0]}
           </span>
         </div>
@@ -30,11 +30,11 @@ const BlogPreviewCard = ({ blog }) => {
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-gray-800 mb-3 hover:text-orange-500 transition-colors flex-1">
+        <h3 className="text-lg font-bold text-gray-800 mb-3 hover:text-orange-500 transition-colors flex-1">
           <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
         </h3>
 
-        <p className="text-gray-700 text-base mb-4 line-clamp-3">
+        <p className="text-gray-700 text-sm mb-4 line-clamp-3">
           {blog.excerpt}
         </p>
 
@@ -43,11 +43,11 @@ const BlogPreviewCard = ({ blog }) => {
             <Image
               src="/images/acharyaAnoop.jpg"
               alt="Author Image"
-              width={36}
-              height={36}
-              className="rounded-full mr-3 object-cover hover:scale-110 transition-transform duration-300"
+              width={32}
+              height={32}
+              className="rounded-full mr-2 object-cover hover:scale-110 transition-transform duration-300"
             />
-            <span className="text-gray-700 font-medium text-sm hover:text-orange-500 transition-all duration-300">
+            <span className="text-gray-700 font-medium text-xs hover:text-orange-500 transition-all duration-300">
               {blog.author}
             </span>
           </Link>
