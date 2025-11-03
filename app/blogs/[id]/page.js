@@ -1,5 +1,3 @@
-"use client";
-
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -196,23 +194,14 @@ const blogPosts = [
   }
 ];
 
-export default function BlogPost({ params }) {
-  const blogId = parseInt(params.id);
+export default async function BlogPost({ params }) {
+  const resolvedParams = await params;
+  const blogId = parseInt(resolvedParams.id);
   const blog = blogPosts.find(post => post.id === blogId);
 
   if (!blog) {
     notFound();
   }
-
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: blog.title,
-        text: blog.excerpt,
-        url: window.location.href,
-      });
-    }
-  };
 
   return (
     <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-8">
