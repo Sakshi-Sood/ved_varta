@@ -2,6 +2,28 @@ import Link from "next/link";
 import Image from "next/image";
 
 const BlogCard = ({ blog, featured = false }) => {
+  // Handle both Appwrite format ($id) and legacy format (id)
+  const blogId = blog.$id || blog.id;
+  
+  // Get image URL - if imageId exists, construct Appwrite storage URL, otherwise use direct image path
+  const getImageUrl = () => {
+    if (blog.imageId) {
+      return `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID}/files/${blog.imageId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`;
+    }
+    return blog.image || "/images/logo.jpg"; // Fallback to logo if no image
+  };
+
+  // Format date properly
+  const formatDate = (dateString) => {
+    if (!dateString) return "Recent";
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch {
+      return dateString;
+    }
+  };
+
   const cardClasses = featured
     ? "bg-white/70 rounded-xl shadow-xl overflow-hidden border-3 border-amber-300 hover:shadow-2xl transition-all duration-300 lg:flex"
     : "bg-white/70 rounded-xl shadow-lg overflow-hidden border-2 border-amber-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col";
@@ -18,14 +40,14 @@ const BlogCard = ({ blog, featured = false }) => {
     <article className={cardClasses}>
       <div className={imageClasses}>
         <Image
-          src={blog.image}
+          src={getImageUrl()}
           alt={blog.title}
           fill
           className="object-cover hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute top-4 left-4">
           <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-            {blog.tags[0]}
+            {blog.tags?.[0] || "Blog"}
           </span>
         </div>
       </div>
@@ -34,11 +56,11 @@ const BlogCard = ({ blog, featured = false }) => {
         <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
           <span className="flex items-center">
             <i className="far fa-calendar-alt mr-2" aria-hidden="true"></i>
-            {blog.date}
+            {formatDate(blog.date)}
           </span>
           <span className="flex items-center">
             <i className="far fa-clock mr-2" aria-hidden="true"></i>
-            {blog.readTime}
+            {blog.readTime || "5 min read"}
           </span>
         </div>
 
@@ -47,7 +69,7 @@ const BlogCard = ({ blog, featured = false }) => {
             featured ? "text-2xl lg:text-3xl" : "text-xl"
           }`}
         >
-          <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
+          <Link href={`/blogs/${blogId}`}>{blog.title}</Link>
         </h3>
 
         <p
@@ -73,7 +95,7 @@ const BlogCard = ({ blog, featured = false }) => {
           </Link>
 
           <Link
-            href={`/blogs/${blog.id}`}
+            href={`/blogs/${blogId}`}
             className="text-orange-500 hover:text-orange-600 font-semibold text-sm flex items-center"
           >
             Read More
@@ -81,16 +103,18 @@ const BlogCard = ({ blog, featured = false }) => {
           </Link>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-4">
-          {blog.tags.slice(1).map((tag, index) => (
-            <span
-              key={index}
-              className="bg-amber-100 text-amber-700 px-2 py-1 rounded-md text-xs font-medium"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {blog.tags && blog.tags.length > 1 && (
+          <div className="flex flex-wrap gap-2 mt-4">
+            {blog.tags.slice(1).map((tag, index) => (
+              <span
+                key={index}
+                className="bg-amber-100 text-amber-700 px-2 py-1 rounded-md text-xs font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );

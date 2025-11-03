@@ -1,9 +1,13 @@
+'use client';
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import CTA from "@/components/CTA";
+import { use, useState, useEffect } from 'react';
+import { databases, DATABASE_ID, BLOGS_COLLECTION_ID } from '@/lib/appwrite';
 
-// This would typically come from a database or CMS
+// This would typically come from a database or CMS (kept as fallback)
 const blogPosts = [
   {
     id: 1,
@@ -194,12 +198,73 @@ const blogPosts = [
   }
 ];
 
-export default async function BlogPost({ params }) {
-  const resolvedParams = await params;
-  const blogId = parseInt(resolvedParams.id);
-  const blog = blogPosts.find(post => post.id === blogId);
+export default function BlogPost({ params }) {
+  const resolvedParams = use(params);
+  const blogId = resolvedParams.id;
+  
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!blog) {
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        // Try to fetch from Appwrite first
+        const response = await databases.getDocument(
+          DATABASE_ID,
+          BLOGS_COLLECTION_ID,
+          blogId
+        );
+        setBlog(response);
+      } catch (err) {
+        // Fallback to hardcoded blogs if Appwrite fails
+        const numericId = parseInt(blogId);
+        const fallbackBlog = blogPosts.find(post => post.id === numericId);
+        if (fallbackBlog) {
+          setBlog(fallbackBlog);
+        } else {
+          setError('Blog not found');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, [blogId]);
+
+  // Helper function to get image URL
+  const getImageUrl = () => {
+    if (!blog) return "/images/logo.jpg";
+    if (blog.imageId) {
+      return `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID}/files/${blog.imageId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`;
+    }
+    return blog.image || "/images/logo.jpg";
+  };
+
+  // Format date properly
+  const formatDate = (dateString) => {
+    if (!dateString) return "Recent";
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch {
+      return dateString;
+    }
+  };
+
+  if (loading) {
+    return (
+      <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-8">
+        <div className="max-w-[1020px] mx-auto px-6 text-center py-20">
+          <div className="inline-block animate-spin rounded-full h-16 w-16 border-b-2 border-orange-500"></div>
+          <p className="mt-4 text-gray-700 text-lg">Loading blog post...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (error || !blog) {
     notFound();
   }
 
@@ -235,62 +300,49 @@ export default async function BlogPost({ params }) {
                 className="rounded-full object-cover"
               />
               <div>
-                <div className="flex items-center gap-2">
-                  <p className="font-medium text-gray-900 text-sm">Acharya Anoop Tripathi</p>
-                  <button className="px-3 py-1 text-sm rounded-full border border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-colors">
-                    Follow
-                  </button>
-                </div>
+                <p className="font-medium text-gray-900 text-sm">Acharya Anoop Tripathi</p>
                 <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
-                  <span>{blog.readTime}</span>
+                  <span>{blog.readTime || "5 min read"}</span>
                   <span>·</span>
-                  <span>{blog.date}</span>
+                  <span>{formatDate(blog.date)}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Featured Image - Right after title */}
-          {blog.image && (
-            <div className="relative w-full mb-12 rounded-xl overflow-hidden shadow-lg">
-              <div className="relative aspect-[16/9] bg-gradient-to-br from-amber-100 to-orange-100">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+          <div className="relative w-full mb-12 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[16/9] bg-gradient-to-br from-amber-100 to-orange-100">
+              <Image
+                src={getImageUrl()}
+                alt={blog.title}
+                fill
+                className="object-cover"
+              />
             </div>
-          )}
+          </div>
 
           {/* Article Content */}
-          <div
-            className="prose prose-lg max-w-none 
-          prose-headings:font-bold prose-headings:text-gray-900 prose-headings:tracking-tight
-          prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-          prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
-          prose-p:text-gray-800 prose-p:text-[19px] prose-p:leading-[30px] prose-p:mb-6
-          prose-ul:text-gray-800 prose-ul:text-[19px] prose-ul:leading-[30px]
-          prose-li:mb-2 prose-li:pl-2
-          prose-strong:text-gray-900 prose-strong:font-semibold
-          prose-a:text-orange-600 prose-a:underline prose-a:decoration-2 hover:prose-a:text-orange-700"
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-          />
+          <div className="prose prose-lg max-w-none">
+            <div className="text-gray-800 text-[19px] leading-[30px] whitespace-pre-wrap">
+              {blog.content}
+            </div>
+          </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-amber-200">
-            {blog.tags.map((tag, index) => (
-              <Link
-                key={index}
-                href={`/blogs?tag=${tag}`}
-                className="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-orange-700 rounded-full text-sm font-medium transition-colors"
-              >
-                {tag}
-              </Link>
-            ))}
-          </div>
+          {blog.tags && blog.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-amber-200">
+              {blog.tags.map((tag, index) => (
+                <Link
+                  key={index}
+                  href={`/blogs?tag=${tag}`}
+                  className="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-orange-700 rounded-full text-sm font-medium transition-colors"
+                >
+                  {tag}
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Author Bio */}
         </div>
@@ -304,12 +356,7 @@ export default async function BlogPost({ params }) {
               className="rounded-full object-cover"
             />
             <div className="flex-1">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-semibold text-gray-900">Acharya Anoop Tripathi</h3>
-                <button className="px-4 py-2 text-sm rounded-full bg-orange-600 hover:bg-orange-700 text-white transition-colors">
-                  Follow
-                </button>
-              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Acharya Anoop Tripathi</h3>
               <p className="text-gray-700 text-base leading-relaxed">
                 A renowned Vedic astrologer with over 15 years of experience in providing spiritual guidance
                 and astrological remedies. Specializes in birth chart analysis, career guidance,
