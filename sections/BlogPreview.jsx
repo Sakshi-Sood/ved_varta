@@ -42,7 +42,7 @@ const blogPosts = [
 
 const BlogPreview = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 px-5 sm:px-10 lg:px-44">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8">
