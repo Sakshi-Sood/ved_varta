@@ -2,6 +2,9 @@
 
 import  { useState } from "react";
 import Image from "next/image";
+import Button from "./Button";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const PujaCard = ({ puja }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -9,7 +12,6 @@ const PujaCard = ({ puja }) => {
   const { 
     name, 
     category, 
-    shortDescription, 
     fullDescription, 
     image, 
     benefits
@@ -66,9 +68,17 @@ const PujaCard = ({ puja }) => {
         </div>
 
         {/* Book Now Button */}
-        <button className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm">
-          Book Now
-        </button>
+        <Link
+          href={`https://wa.me/+919090252584?text=I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(name)}.`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            text="Book Now"
+            fill
+            fullWidth
+          />
+        </Link>
       </div>
     </div>
   );

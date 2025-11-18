@@ -1,4 +1,5 @@
 import CTA from "../../components/CTA";
+import Image from "next/image";
 
 const stats = [
   { number: "5,190+", label: "Consultations" },
@@ -10,15 +11,28 @@ const AboutPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-amber-200/70 via-yellow-200/50 to-amber-200/70">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-amber-400/70 via-orange-400 to-amber-400/70 text-white py-4 md:py-8">
-        <div className="max-w-6xl mx-auto text-center">
-          <span className="inline-flex items-center px-4 py-2 bg-white/25 rounded-full text-sm font-semibold mb-2 md:mb-3">
-            About VedVarta
-          </span>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
-            Ancient Wisdom for Modern Life
-          </h1>
-          <p className="lg:text-lg max-w-3xl mx-auto text-balance">
+      <section className="bg-gradient-to-r from-amber-400/70 via-orange-400 to-amber-400/70 text-white py-6 md:py-10">
+        <div className="max-w-6xl mx-auto text-center px-4">
+          <div className="flex items-center justify-center gap-6 md:gap-8">
+            <Image
+              src="/images/round_logo.png"
+              alt="VedVarta Logo"
+              width={80}
+              height={80}
+              className="rounded-full shadow-lg flex-shrink-0"
+            />
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              Ancient Wisdom for Modern Life
+            </h1>
+            <Image
+              src="/images/round_logo.png"
+              alt="VedVarta Logo"
+              width={80}
+              height={80}
+                className="rounded-full shadow-lg flex-shrink-0"
+            />
+          </div>
+          <p className="text-base md:text-lg lg:text-lg max-w-3xl mx-auto text-balance mt-1">
             Blending classical Vedic knowledge with compassionate guidance to help
             you make timely, positive decisions.
           </p>

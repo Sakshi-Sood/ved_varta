@@ -29,11 +29,11 @@ const BlogCard = ({ blog, featured = false }) => {
     : "bg-white/70 rounded-xl shadow-lg overflow-hidden border-2 border-amber-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col";
 
   const imageClasses = featured
-    ? "lg:w-1/2 h-64 lg:h-auto relative"
+    ? "lg:w-1/2 h-64 lg:h-[400px] relative shrink-0"
     : "h-48 relative";
 
   const contentClasses = featured
-    ? "p-8 lg:w-1/2 flex flex-col justify-center"
+    ? "p-8 lg:w-1/2 flex flex-col justify-between"
     : "p-6 flex-1 flex flex-col";
 
   return (
@@ -73,15 +73,15 @@ const BlogCard = ({ blog, featured = false }) => {
         </h3>
 
         <p
-          className={`text-gray-700 mb-4 ${
-            featured ? "text-lg" : "text-base"
+          className={`text-gray-700 mb-6 ${
+            featured ? "text-lg leading-relaxed min-h-[80px]" : "text-base"
           } flex-1`}
         >
           {blog.excerpt}
         </p>
 
         <div className="flex items-center justify-between">
-          <Link href="/about" className="flex items-center">
+          <Link href="/contact" className="flex items-center">
             <Image
               src="/images/acharyaAnoop.jpg"
               alt="Author Image"
