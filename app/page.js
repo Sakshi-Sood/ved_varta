@@ -6,7 +6,7 @@ import YouTubeVideos from "../sections/YouTubeVideos";
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-br from-amber-200/80 via-yellow-50 to-amber-200/80 min-h-screen px-5 s:px-10 lg:px-44 py-5">
+    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen px-5 s:px-10 lg:px-44 py-5">
       <Hero />
       <Expertise />
       <FeaturedProducts />

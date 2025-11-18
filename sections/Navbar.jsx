@@ -6,9 +6,9 @@ import Button from "../components/Button";
 import Link from "next/link";
 
 export const navLinks = [
+  { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Services", href: "/services" },
   { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];

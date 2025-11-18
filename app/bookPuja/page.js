@@ -8,24 +8,20 @@ import Link from "next/link";
 
 const BookPujaPage = () => {
   return (
-    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-50 to-amber-200/80 min-h-screen px-6 md:px-10 py-8">
+    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen px-6 md:px-10 py-8">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <section className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="textGradient">Book Sacred Pujas</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 font-semibold mb-8 max-w-3xl mx-auto">
             Experience divine blessings through authentic Vedic rituals performed by experienced pandits
           </p>
         </section>
 
         {/* Pujas Section */}
         <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Our <span className="textGradient">Sacred Puja Services</span>
-          </h2>
-
           {/* Pujas Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {pujasData.map((puja) => (

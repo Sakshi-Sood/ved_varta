@@ -5,7 +5,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
-        pathname: '**'
+        pathname: '/**'
+      }, 
+      {
+        protocol: 'https',
+        hostname: 'fra.cloud.appwrite.io',
+        pathname: '/v1/storage/**'
       }
     ]
   }
