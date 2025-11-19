@@ -1,55 +1,48 @@
+"use client";
+
 import Link from "next/link";
 import BlogPreviewCard from "../components/BlogPreviewCard";
 import Button from "../components/Button";
-
-// Blog data - in a real app, this would come from a CMS or database
-const blogPosts = [
-  {
-    id: 1,
-    title:
-      "Understanding Your Birth Chart: A Beginner's Guide to Vedic Astrology",
-    excerpt:
-      "Discover how to read your birth chart and understand the fundamental principles of Vedic astrology that can guide your life decisions.",
-    author: "Acharya Anoop Tripathi",
-    date: "January 15, 2025",
-    image: "/images/birth-chart.jpg",
-    readTime: "8 min read",
-    tags: ["Birth Chart", "Vedic Astrology", "Beginner Guide"],
-  },
-  {
-    id: 2,
-    title: "Powerful Vedic Remedies for Career Growth and Success",
-    excerpt:
-      "Learn about effective Vedic remedies and rituals that can help enhance your career prospects and remove obstacles from your professional path.",
-    author: "Acharya Anoop Tripathi",
-    date: "January 10, 2025",
-    image: "/images/logo.jpg",
-    readTime: "10 min read",
-    tags: ["Career", "Remedies", "Success", "Mantras"],
-  },
-  {
-    id: 3,
-    title: "The Significance of Mahadasha and Antardasha in Life Events",
-    excerpt:
-      "Explore how planetary periods (Mahadasha) and sub-periods (Antardasha) influence major life events and transitions according to Vedic astrology.",
-    author: "Acharya Anoop Tripathi",
-    date: "January 5, 2025",
-    image: "/images/logo2.jpg",
-    readTime: "12 min read",
-    tags: ["Mahadasha", "Dasha System", "Life Events", "Timing"],
-  },
-];
+import { useEffect, useState } from "react";
+import { databases, DATABASE_ID, BLOGS_COLLECTION_ID } from "@/lib/appwrite";
+import { Query } from "appwrite";
 
 const BlogPreview = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await databases.listDocuments(
+          DATABASE_ID,
+          BLOGS_COLLECTION_ID,
+          [Query.orderDesc("$createdAt"), Query.limit(3)]
+        );
+        setBlogs(response.documents);
+      } catch (err) {
+        console.error("Error fetching homepage blogs:", err);
+        setError(
+          "Failed to load latest blogs. Please check your Appwrite configuration."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
   return (
     <section className="py-16 px-5 sm:px-10 lg:px-44">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
             <span className="textGradient">Vedic Wisdom</span> Blog
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 sm:text-lg max-w-2xl mx-auto">
             Discover ancient Vedic insights, practical remedies, and
             astrological guidance to navigate life&apos;s journey with clarity
             and purpose.
@@ -57,11 +50,26 @@ const BlogPreview = () => {
         </div>
 
         {/* Blog Preview Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {blogPosts.map((blog) => (
-            <BlogPreviewCard key={blog.id} blog={blog} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="text-center py-10 mb-8">
+            <div className="inline-block animate-spin rounded-full h-10 w-10 border-b-2 border-orange-500"></div>
+            <p className="mt-3 text-gray-700">Loading latest articles...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-10 mb-8">
+            <p className="text-red-600">{error}</p>
+          </div>
+        ) : blogs.length === 0 ? (
+          <div className="text-center py-10 mb-8 text-gray-600">
+            No articles published yet. Check back soon!
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {blogs.map((blog) => (
+              <BlogPreviewCard key={blog.$id || blog.id} blog={blog} />
+            ))}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="flex items-center justify-center flex-col text-center">

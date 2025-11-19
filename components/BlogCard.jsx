@@ -29,8 +29,8 @@ const BlogCard = ({ blog, featured = false }) => {
     : "bg-white/70 rounded-xl shadow-lg overflow-hidden border-2 border-amber-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col";
 
   const imageClasses = featured
-    ? "lg:w-1/2 h-64 lg:h-[400px] relative shrink-0"
-    : "h-48 relative";
+    ? "lg:w-1/2 h-64 lg:h-auto relative shrink-0 overflow-hidden"
+    : "h-48 relative overflow-hidden";
 
   const contentClasses = featured
     ? "p-8 lg:w-1/2 flex flex-col justify-between"
@@ -38,12 +38,12 @@ const BlogCard = ({ blog, featured = false }) => {
 
   return (
     <article className={cardClasses}>
-      <div className={imageClasses}>
+      <div className={imageClasses} >
         <Image
           src={getImageUrl()}
           alt={blog.title}
           fill
-          className="object-cover hover:scale-105 transition-transform duration-300"
+          className="object-cover"
         />
         <div className="absolute top-4 left-4">
           <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
