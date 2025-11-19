@@ -14,11 +14,18 @@ const ProductCard = ({ product }) => {
   return (
     <>
       <div
-        className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer"
+        className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer flex flex-col h-full"
         onClick={openModal}
       >
+        {/* Category Label */}
+        <div className="p-3 md:p-4">
+          <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold">
+            {category}
+          </span>
+        </div>
+
         {/* Image */}
-        <div className="relative h-56 overflow-hidden bg-gradient-to-br from-yellow-50 to-amber-50">
+        <div className="relative h-40 md:h-48 overflow-hidden bg-gradient-to-br from-yellow-50 to-amber-50">
           <Image
             src={image}
             alt={name}
@@ -26,15 +33,13 @@ const ProductCard = ({ product }) => {
             className="mask-clip-content object-contain group-hover:scale-105 transition-transform duration-500"
           />
         </div>
+
         {/* Details */}
-        <div className="p-3 md:p-5">
-          <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-semibold mb-1 md:mb-3">
-            {category}
-          </span>
-          <h3 className="text-md md:text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+        <div className="p-3 md:p-4 flex-1">
+          <h3 className="text-sm md:text-base font-bold text-gray-800 mb-2 line-clamp-2">
             {name}
           </h3>
-          <p className="hidden md:block text-gray-600 text-xs">{description}</p>
+          <p className="hidden md:block text-gray-600 text-xs line-clamp-2">{description}</p>
         </div>
       </div>
 
