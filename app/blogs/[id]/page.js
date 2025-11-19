@@ -201,7 +201,7 @@ const blogPosts = [
 export default function BlogPost({ params }) {
   const resolvedParams = use(params);
   const blogId = resolvedParams.id;
-  
+
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -255,10 +255,10 @@ export default function BlogPost({ params }) {
 
   if (loading) {
     return (
-      <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-8">
-        <div className="max-w-[1020px] mx-auto px-6 text-center py-20">
-          <div className="inline-block animate-spin rounded-full h-16 w-16 border-b-2 border-orange-500"></div>
-          <p className="mt-4 text-gray-700 text-lg">Loading blog post...</p>
+      <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-6 md:py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center py-12 md:py-16 lg:py-20">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 md:h-16 md:w-16 border-b-2 border-orange-500"></div>
+          <p className="mt-4 text-gray-700 text-base md:text-lg">Loading blog post...</p>
         </div>
       </main>
     );
@@ -269,39 +269,39 @@ export default function BlogPost({ params }) {
   }
 
   return (
-    <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-8">
+    <main className="bg-gradient-to-br from-amber-200/70 via-yellow-100/60 to-amber-200/70 min-h-screen py-4 sm:py-6 md:py-8">
       {/* Back to Blogs - Subtle Link */}
-      <div className="max-w-[1020px] mx-auto px-6 mb-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-3 md:mb-4">
         <Link
           href="/blogs"
-          className="inline-flex items-center text-orange-600 hover:text-orange-700 text-sm font-medium transition-colors"
+          className="inline-flex items-center text-orange-600 hover:text-orange-700 text-xs sm:text-sm font-medium transition-colors"
         >
           <i className="fas fa-arrow-left mr-2" aria-hidden="true"></i>
           All Posts
         </Link>
       </div>
 
-      <article className="max-w-[1020px] mx-auto px-6">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* White Content Container */}
-        <div className="bg-white rounded-2xl shadow-md p-8 md:p-12">
+        <div className="bg-white rounded-lg md:rounded-xl shadow-md p-4 sm:p-5 md:p-6 lg:p-8">
           {/* Article Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
             {blog.title}
           </h1>
 
           {/* Author Info and Meta */}
-          <div className="flex items-center justify-between py-6 border-b border-amber-200 mb-8">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between py-3 md:py-4 border-b border-amber-200 mb-4 md:mb-6">
+            <div className="flex items-center gap-2 md:gap-3">
               <Image
                 src="/images/acharyaAnoop.jpg"
                 alt="Acharya Anoop Tripathi"
-                width={48}
-                height={48}
-                className="rounded-full object-cover"
+                width={40}
+                height={40}
+                className="rounded-full object-cover w-10 h-10 md:w-12 md:h-12"
               />
               <div>
-                <p className="font-medium text-gray-900 text-sm">Acharya Anoop Tripathi</p>
-                <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+                <p className="font-medium text-gray-900 text-xs sm:text-sm">Acharya Anoop Tripathi</p>
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1">
                   <span>{blog.readTime || "5 min read"}</span>
                   <span>·</span>
                   <span>{formatDate(blog.date)}</span>
@@ -311,8 +311,8 @@ export default function BlogPost({ params }) {
           </div>
 
           {/* Featured Image - Right after title */}
-          <div className="relative w-full mb-12 rounded-xl overflow-hidden shadow-lg">
-            <div className="relative aspect-[16/9] bg-gradient-to-br from-amber-100 to-orange-100">
+          <div className="relative w-full mb-6 md:mb-8 rounded-lg md:rounded-xl overflow-hidden shadow-md">
+            <div className="relative aspect-[2/1] sm:aspect-[5/2] md:aspect-[3/1] bg-gradient-to-br from-amber-100 to-orange-100">
               <Image
                 src={getImageUrl()}
                 alt={blog.title}
@@ -323,20 +323,20 @@ export default function BlogPost({ params }) {
           </div>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none">
-            <div className="text-gray-800 text-[19px] leading-[30px] whitespace-pre-wrap">
+          <div className="prose prose-sm sm:prose-base md:prose-lg max-w-none">
+            <div className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-[1.75] md:leading-[1.8] whitespace-pre-wrap">
               {blog.content}
             </div>
           </div>
 
           {/* Tags */}
           {blog.tags && blog.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-amber-200">
+            <div className="flex flex-wrap gap-2 mt-6 md:mt-8 pt-4 md:pt-6 border-t border-amber-200">
               {blog.tags.map((tag, index) => (
                 <Link
                   key={index}
                   href={`/blogs?tag=${tag}`}
-                  className="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-orange-700 rounded-full text-sm font-medium transition-colors"
+                  className="px-3 py-1.5 md:px-4 md:py-2 bg-amber-100 hover:bg-amber-200 text-orange-700 rounded-full text-xs sm:text-sm font-medium transition-colors"
                 >
                   {tag}
                 </Link>
@@ -344,29 +344,10 @@ export default function BlogPost({ params }) {
             </div>
           )}
 
-          {/* Author Bio */}
         </div>
-        <div className="py-8 bg-amber-50 mt-12 rounded-xl px-6 border border-amber-200">
-          <div className="flex items-start gap-4">
-            <Image
-              src="/images/acharyaAnoop.jpg"
-              alt="Acharya Anoop Tripathi"
-              width={88}
-              height={88}
-              className="rounded-full object-cover"
-            />
-            <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Acharya Anoop Tripathi</h3>
-              <p className="text-gray-700 text-base leading-relaxed">
-                A renowned Vedic astrologer with over 15 years of experience in providing spiritual guidance
-                and astrological remedies. Specializes in birth chart analysis, career guidance,
-                and relationship counseling using ancient Vedic wisdom.
-              </p>
-            </div>
-          </div>
-        </div>
+
         {/* Call to Action */}
-        <div className="mt-12">
+        <div className="mt-6 md:mt-8">
           <CTA />
         </div>
       </article>
