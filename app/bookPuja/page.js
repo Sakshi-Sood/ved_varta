@@ -11,11 +11,12 @@ const BookPujaPage = () => {
     <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen px-6 md:px-10 py-8">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
-        <section className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="textGradient">Book Sacred Pujas</span>
+        <section className="text-center">
+          <h1 className="text-3xl sm:text-5xl font-bold mb-6">
+            <span className="textGradient">Book Sacred</span>
+            <span className="text-black"> Pujas</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-semibold mb-8 max-w-3xl mx-auto">
+          <p className="text-md sm:text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
             Experience divine blessings through authentic Vedic rituals performed by experienced pandits
           </p>
         </section>
@@ -37,7 +38,7 @@ const BookPujaPage = () => {
               Need a Custom Puja Service?
             </h3>
             <p className="text-gray-700 mb-6">
-              Can't find what you're looking for? Our experts can create a personalized puja plan for your specific needs.
+              Can&apos;t find what you&apos;re looking for? Our experts can create a personalized puja plan for your specific needs.
             </p>
             <div className="flex justify-center space-x-4">
               <Link href="tel:+919090252584">
