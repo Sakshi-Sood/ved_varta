@@ -1,5 +1,7 @@
 import CTA from "../../components/CTA";
 import Image from "next/image";
+import Button from "../../components/Button";
+import Link from "next/link";
 
 const stats = [
   { number: "5,190+", label: "Consultations" },
@@ -33,8 +35,66 @@ const AboutPage = () => {
       {/* Main */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 md:py-10 lg:py-12">
         <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8">
-          {/* Left Column - Empty spacer for layout consistency */}
-          <div className="hidden lg:block lg:w-1/3 lg:flex-shrink-0" />
+          {/* Left Column - Profile Card */}
+          <div className="lg:w-1/3 lg:flex-shrink-0">
+            <div className="bg-white/60 rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 sticky top-8">
+              {/* Profile Image */}
+              <div className="text-center mb-4 md:mb-6">
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-3 md:mb-4">
+                  <div className="w-full h-full rounded-full border-3 md:border-4 border-orange-300">
+                    <Image
+                      src="/images/acharyaAnoop.jpg"
+                      alt="Acharya Anoop Tripathi"
+                      width={144}
+                      height={144}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="absolute bottom-1 right-1 md:bottom-2 md:right-2 w-6 h-6 md:w-7 md:h-7 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <span className="text-white text-xs md:text-sm">✓</span>
+                  </div>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-1 md:mb-2">
+                  Acharya Anoop Tripathi
+                </h2>
+                <p className="text-orange-500 font-semibold mb-2 text-sm md:text-base">M.A. Jyotish Shastra</p>
+
+                {/* Rating */}
+                <div className="flex justify-center items-center mb-3 md:mb-4">
+                  <div className="flex text-yellow-400 text-sm md:text-base">
+                    ★★★★★
+                  </div>
+                  <span className="ml-2 text-gray-600 text-sm">(4.9/5)</span>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                <div className="flex items-center text-gray-600 text-sm md:text-base">
+                  <span className="mr-3">📍</span>
+                  <span>Indore, Madhya Pradesh</span>
+                </div>
+                <div className="flex items-center text-gray-600 text-sm md:text-base">
+                  <span className="mr-3">🕒</span>
+                  <span>Available: 9 AM - 9 PM</span>
+                </div>
+                <div className="flex items-center text-gray-600 text-sm md:text-base">
+                  <span className="mr-3">🗣️</span>
+                  <span>Hindi, Sanskrit</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col space-y-2 md:space-y-3">
+                <Link href="tel:+919090252584" className="w-full">
+                  <Button text="📞 Book Consultation" fill={true} fullWidth />
+                </Link>
+                <Link href="https://wa.me/+919090252584" className="w-full">
+                  <Button icon={<i className="fab fa-whatsapp" aria-hidden="true"></i>} text="Send Message" fill={false} fullWidth />
+                </Link>
+              </div>
+            </div>
+          </div>
 
           {/* Right Column - Main Content */}
           <div className="lg:w-2/3 lg:flex-grow space-y-4 md:space-y-6">

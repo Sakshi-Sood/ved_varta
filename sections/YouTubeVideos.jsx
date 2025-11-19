@@ -88,7 +88,7 @@ const YouTubeVideos = () => {
                     rel="noopener noreferrer"
                     className="text-sm text-amber-600 hover:text-amber-700 font-medium flex items-center gap-1"
                   >
-                    <i className="fab fa-youtube"></i>
+                    <i className="fab fa-youtube" aria-hidden="true"></i>
                     Watch on YouTube
                   </Link>
                 </div>
