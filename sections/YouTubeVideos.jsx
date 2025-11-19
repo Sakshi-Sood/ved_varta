@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Button from "@/components/Button";
 
 const YouTubeVideos = () => {
   const [videos, setVideos] = useState([]);
@@ -152,24 +153,29 @@ const YouTubeVideos = () => {
             Join our YouTube channel for regular updates on Vedic astrology, spiritual guidance,
             and transformative practices to enhance your life journey.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center items-center">
             <Link
-              href="https://www.youtube.com/@vedvarta" // Replace with actual YouTube channel
+              href="https://www.youtube.com/@AcharyaAnoopTripathi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-medium transition-colors text-sm lg:text-base"
+              className="w-full sm:w-auto flex justify-center"
             >
-              <i className="fab fa-youtube text-lg lg:text-xl"></i>
-              Subscribe to Channel
+              <Button
+                text="Subscribe to Channel"
+                icon={<i className="fab fa-youtube text-lg lg:text-xl"></i>}
+              />
             </Link>
             <Link
               href="https://wa.me/+919090252584"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-medium transition-colors text-sm lg:text-base"
+              className="w-full sm:w-auto flex justify-center"
             >
-              <i className="fab fa-whatsapp text-lg lg:text-xl"></i>
-              Get Personal Guidance
+              <Button
+                text="Get Personal Guidance"
+                icon={<i className="fab fa-whatsapp text-lg lg:text-xl"></i>}
+                fill
+              />
             </Link>
           </div>
         </div>
