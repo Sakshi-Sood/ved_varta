@@ -1,13 +1,11 @@
-const Button = ({ text, icon, fill, right, fullWidth }) => {
+const Button = ({ text, icon, fill, right, fullWidth, className = "" }) => {
   return (
     <button
-      className={`flex items-center justify-center font-semibold px-4 py-2 rounded-lg cursor-pointer border-2 border-amber-500 ${
-        fullWidth ? "w-full" : ""
-      } ${
-        fill
+      className={`flex items-center justify-center font-semibold px-4 py-2 rounded-lg cursor-pointer border-2 border-amber-500 ${fullWidth ? "w-full" : ""
+        } ${fill
           ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white hover:from-amber-400 hover:to-amber-500"
           : " text-amber-600 hover:bg-amber-100"
-      } transition-colors duration-300`}
+        } transition-colors duration-300 ${className}`}
     >
       {icon && !right && <span className="mr-2">{icon}</span>}
       {text}
