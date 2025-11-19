@@ -51,7 +51,7 @@ export default function BannerCarousel({ banners = [] }) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto pt-5 md:pt-8 px-3 md:px-6">
+    <div className="max-w-7xl sm:max-w-6xl mx-auto pt-5 md:pt-8 sm:px-3 md:px-6">
       <div
         className="relative overflow-hidden group rounded-xl md:rounded-4xl"
         onMouseEnter={() => setIsPaused(true)}
@@ -65,14 +65,14 @@ export default function BannerCarousel({ banners = [] }) {
             <Link
               href="/contact"
               key={b.src}
-              className="min-w-full relative h-36 sm:h-56 md:h-72 lg:h-80 xl:h-96"
+              className="min-w-full relative h-40 sm:h-56 md:h-72 lg:h-80 xl:h-96"
             >
               <Image
                 src={b.src}
                 alt={b.alt}
                 fill
                 priority={i === 0}
-                className="object-cover md:object-contain"
+                className="mask-auto"
               />
             </Link>
           ))}
@@ -82,7 +82,7 @@ export default function BannerCarousel({ banners = [] }) {
         <button
           aria-label="Previous banner"
           onClick={prev}
-          className="absolute flex justify-center items-center top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 w-10 h-10 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition cursor-pointer"
+          className="absolute flex justify-center items-center top-1/2 -translate-y-1/2 left-1 sm:left-3 bg-black/50 hover:bg-black/70 text-white p-1 sm:p-2 w-10 h-10 rounded-full opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition cursor-pointer"
         >
           <i
             className="fas fa-chevron-left text-sm sm:text-lg"

@@ -28,5 +28,15 @@ export const expertiseAreas = [
     icon: "/icons/numerology.png",
     title: "Numerology",
     description: "Study of numbers and their influence on human life",
+  },
+  {
+    icon: "/icons/LoveCompatibility.png",
+    title: "Marriage Compatibility",
+    description: "Astrological matching for marital harmony",
+  },
+  {
+    icon: "/icons/talkAstrologer.png",
+    title: "BirthChart Analysis",
+    description: "Birth chart analysis and life predictions",
   }
 ];

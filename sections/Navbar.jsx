@@ -11,6 +11,7 @@ export const navLinks = [
   { name: "Products", href: "/products" },
   { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
+  { name: "Admin", href: "/admin" }
 ];
 
 const Navbar = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   const SCROLL_UP_THRESHOLD = 10; // px: how much user must scroll up to show
   const SCROLL_DOWN_THRESHOLD = 10; // px: how much user must scroll down to hide
-  const MIN_SCROLL_TO_HIDE = 60; // px: don't hide for small scrolls near top
+  const MIN_SCROLL_TO_HIDE = 40; // px: don't hide for small scrolls near top
 
   useEffect(() => {
     // Make sure this runs only in client
@@ -86,8 +87,8 @@ const Navbar = () => {
   const navBg = isMobileMenuOpen
     ? "bg-orange-100/95"
     : isAtTop
-    ? "bg-gray-100 shadow-none"
-    : "bg-white/95 shadow-sm";
+      ? "bg-white/40 shadow-none"
+      : "bg-white/95 shadow-sm";
 
   return (
     <>
@@ -99,6 +100,7 @@ const Navbar = () => {
           <Link
             href="/"
             className="text-2xl font-bold flex items-center space-x-2"
+            onClick={closeMobileMenu}
           >
             <Image
               src="/images/logo.png"
@@ -118,7 +120,7 @@ const Navbar = () => {
                   href={href}
                   className="relative text-gray-700 hover:text-amber-600 transition-colors duration-300 font-semibold group pb-1"
                 >
-                  {name}
+                  {name != "Admin" ? name : null}
                   <span className="absolute left-0 bottom-0 w-full h-[2px] bg-amber-600 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
                 </Link>
               </li>
@@ -179,17 +181,15 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMobileMenu}
       />
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="p-6">
           {/* Mobile Menu Header */}
@@ -217,7 +217,7 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                   className="block text-lg font-semibold text-gray-700 hover:text-amber-600 transition-colors duration-300 py-2"
                 >
-                  {name}
+                  {name == "Admin" ? null : name}
                 </Link>
               </li>
             ))}
