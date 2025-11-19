@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <script src="https://kit.fontawesome.com/d6cddf6b31.js" crossOrigin="anonymous" async></script>
       </head>
       <body
-        className={`${poppins.className} antialiased`}
+        className={`${poppins.className} antialiased bg-amber-100`}
       >
         <Navbar />
         {children}
