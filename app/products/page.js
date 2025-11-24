@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "../../components/ProductCard";
 import ProductModal from "../../components/ProductModal";
@@ -10,7 +10,7 @@ import BannerCarousel from "@/components/BannerCarousel";
 import { productBanners } from "@/data/banner";
 import CTA from "@/components/CTA";
 
-const ProductsPage = () => {
+const ProductsContent = () => {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -134,6 +134,21 @@ const ProductsPage = () => {
         />
       )}
     </main>
+  );
+};
+
+const ProductsPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4">⏳</div>
+          <p className="text-xl text-gray-700">Loading products...</p>
+        </div>
+      </div>
+    }>
+      <ProductsContent />
+    </Suspense>
   );
 };
 
