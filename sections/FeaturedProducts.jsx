@@ -2,7 +2,9 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { products } from "@/data/products";
+import BlurText from "@/components/shadcn/BlurText";
 
 export default function FeaturedProducts() {
   const pickFeatured = () => {
@@ -45,10 +47,11 @@ export default function FeaturedProducts() {
     <section className="py-5 sm:pt-16 sm:pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 mb-8 sm:mb-12">
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4">
-            <span className="textGradient">Featured Divine</span>
-            <span className="text-black"> Products</span>
-          </h2>
+          <BlurText
+            text="Featured Divine Products"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 textGradient justify-center"
+            delay={50}
+          />
           <p className="text-gray-600 sm:text-lg max-w-3xl mx-auto">
             Handpicked authentic spiritual products to enhance your cosmic
             energy and bring positive transformations.
@@ -59,67 +62,72 @@ export default function FeaturedProducts() {
       {/* Infinite scrolling strip */}
       <div className="relative w-full">
         <div className="inline-flex animate-scroll-left">
-          {/* First set */}
           {featuredItems.map((product, index) => (
-            <article
+            <Link
               key={`set1-${product.id}-${index}`}
-              className="flex-shrink-0 w-[calc(50vw-2rem)] sm:w-72 lg:w-80 mx-1 sm:mx-3 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-amber-100"
+              href={`/products?product=${product.id}`}
+              className="flex-shrink-0 w-[calc(50vw-2rem)] sm:w-72 lg:w-80 mx-1 sm:mx-3"
             >
-              <div className="relative h-32 sm:h-52 bg-gradient-to-br from-amber-50 to-yellow-50">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-2 sm:p-4 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 320px"
-                />
-                <div className="absolute top-1 left-1 sm:top-2 sm:left-2">
-                  <span className="bg-amber-500/90 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-medium">
-                    {product.category}
-                  </span>
+              <article className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-amber-100 cursor-pointer h-full">
+                <div className="relative h-32 sm:h-52 bg-gradient-to-br from-amber-50 to-yellow-50">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-2 sm:p-4 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 320px"
+                  />
+                  <div className="absolute top-1 left-1 sm:top-2 sm:left-2">
+                    <span className="bg-amber-500/90 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-medium">
+                      {product.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-2 sm:p-4">
-                <h3 className="text-base font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600 text-sm line-clamp-2">
-                  {product.description}
-                </p>
-              </div>
-            </article>
+                <div className="p-2 sm:p-4">
+                  <h3 className="text-base font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+              </article>
+            </Link>
           ))}
 
           {featuredItems.map((product, index) => (
-            <article
+            <Link
               key={`set2-${product.id}-${index}`}
-              className="flex-shrink-0 w-[calc(50vw-1rem)] sm:w-72 lg:w-80 mx-3 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-amber-100"
+              href={`/products?product=${product.id}`}
+              className="flex-shrink-0 w-[calc(50vw-1rem)] sm:w-72 lg:w-80 mx-3"
             >
-              <div className="relative h-32 sm:h-52 bg-gradient-to-br from-amber-50 to-yellow-50">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-2 sm:p-4 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 320px"
-                />
-                <div className="absolute top-1 left-1 sm:top-2 sm:left-2">
-                  <span className="bg-amber-500/90 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-medium">
-                    {product.category}
-                  </span>
+              <article className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-amber-100 cursor-pointer h-full">
+                <div className="relative h-32 sm:h-52 bg-gradient-to-br from-amber-50 to-yellow-50">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-2 sm:p-4 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 320px"
+                  />
+                  <div className="absolute top-1 left-1 sm:top-2 sm:left-2">
+                    <span className="bg-amber-500/90 text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-medium">
+                      {product.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-2 sm:p-4">
-                <h3 className="text-sm font-semibold text-gray-800 sm:mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600 text-sm line-clamp-3">
-                  {product.description}
-                </p>
-              </div>
-            </article>
+                <div className="p-2 sm:p-4">
+                  <h3 className="text-sm font-semibold text-gray-800 sm:mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {product.description}
+                  </p>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
