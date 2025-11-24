@@ -1,21 +1,28 @@
+"use client";
+
 import Image from "next/image";
 import { expertiseAreas } from "../utils";
-import Link from "next/link";
+import BlurText from "./shadcn/BlurText";
+import { useEffect, useState } from "react";
 
 const Expertise = () => {
   return (
     <section className="px-3 sm:px-10 lg:px-44">
       <div className="text-center mb-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-          <span className="textGradient">Services We</span>{" "}
-          <span className="text-black">Offer</span>
-        </h2>
+        <div className="flex text-3xl sm:text-4xl md:text-5xl justify-center font-semibold">
+          <BlurText
+            text="Services We Offer"
+            className="font-bold mb-3 textGradient justify-center"
+            delay={100}
+          />
+        </div>
         <p className="text-gray-700 text-lg max-w-2xl mx-auto">
           Comprehensive Vedic solutions tailored to your unique life challenges.
         </p>
       </div>
+
       <div className="bg-transparent rounded-2xl py-4 sm:py-6 lg:py-8 max-w-[90rem] mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 cursor-default">
           {expertiseAreas.map((area, index) => (
             <div
               href="/services"

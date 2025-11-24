@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import { databases, DATABASE_ID, BLOGS_COLLECTION_ID } from "@/lib/appwrite";
 import { Query } from "appwrite";
+import BlurText from "@/components/shadcn/BlurText";
 
 const BlogPreview = () => {
   const [blogs, setBlogs] = useState([]);
@@ -39,9 +40,11 @@ const BlogPreview = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-            <span className="textGradient">Vedic Wisdom</span> Blog
-          </h2>
+          <BlurText
+            text="Vedic Wisdom Blog"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 textGradient justify-center"
+            delay={50}
+          />
           <p className="text-gray-700 sm:text-lg max-w-2xl mx-auto">
             Discover ancient Vedic insights, practical remedies, and
             astrological guidance to navigate life&apos;s journey with clarity

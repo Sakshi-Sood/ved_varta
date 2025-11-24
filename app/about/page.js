@@ -1,12 +1,16 @@
+"use client";
+
 import CTA from "../../components/CTA";
 import Image from "next/image";
 import Button from "../../components/Button";
 import Link from "next/link";
+import CountUp from "../../components/shadcn/CountUp";
+import { Star, MapPin, Clock, Languages, Phone } from "lucide-react";
 
 const stats = [
-  { number: "5,190+", label: "Consultations" },
-  { number: "12+", label: "Years Experience" },
-  { number: "98%", label: "Client Satisfaction" },
+  { number: 5190, label: "Consultations", suffix: "+" },
+  { number: 12, label: "Years Experience", suffix: "+" },
+  { number: 98, label: "Client Satisfaction", suffix: "%" },
 ];
 
 const AboutPage = () => {
@@ -59,10 +63,13 @@ const AboutPage = () => {
                 </h2>
                 <p className="text-orange-500 font-semibold mb-2 text-sm md:text-base">M.A. Jyotish Shastra</p>
 
-                {/* Rating */}
                 <div className="flex justify-center items-center mb-3 md:mb-4">
-                  <div className="flex text-yellow-400 text-sm md:text-base">
-                    ★★★★★
+                  <div className="flex text-yellow-400 text-sm md:text-base gap-1">
+                    <Star size={16} fill="currentColor" />
+                    <Star size={16} fill="currentColor" />
+                    <Star size={16} fill="currentColor" />
+                    <Star size={16} fill="currentColor" />
+                    <Star size={16} fill="currentColor" />
                   </div>
                   <span className="ml-2 text-gray-600 text-sm">(4.9/5)</span>
                 </div>
@@ -71,15 +78,15 @@ const AboutPage = () => {
               {/* Contact Info */}
               <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                 <div className="flex items-center text-gray-600 text-sm md:text-base">
-                  <span className="mr-3">📍</span>
+                  <MapPin size={18} className="mr-3 flex-shrink-0" />
                   <span>Indore, Madhya Pradesh</span>
                 </div>
                 <div className="flex items-center text-gray-600 text-sm md:text-base">
-                  <span className="mr-3">🕒</span>
+                  <Clock size={18} className="mr-3 flex-shrink-0" />
                   <span>Available: 9 AM - 9 PM</span>
                 </div>
                 <div className="flex items-center text-gray-600 text-sm md:text-base">
-                  <span className="mr-3">🗣️</span>
+                  <Languages size={18} className="mr-3 flex-shrink-0" />
                   <span>Hindi, Sanskrit</span>
                 </div>
               </div>
@@ -87,7 +94,7 @@ const AboutPage = () => {
               {/* Action Buttons */}
               <div className="flex flex-col space-y-2 md:space-y-3">
                 <Link href="tel:+919090252584" className="w-full">
-                  <Button text="📞 Book Consultation" fill={true} fullWidth />
+                  <Button icon={<Phone size={18} />} text="Book Consultation" fill={true} fullWidth />
                 </Link>
                 <Link href="https://wa.me/+919090252584" className="w-full">
                   <Button icon={<i className="fab fa-whatsapp" aria-hidden="true"></i>} text="Send Message" fill={false} fullWidth />
@@ -105,7 +112,17 @@ const AboutPage = () => {
                   key={i}
                   className="flex-1 min-w-[100px] bg-white/60 rounded-lg md:rounded-xl p-2 sm:p-3 md:p-4 lg:p-6 text-center shadow-md"
                 >
-                  <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-orange-400 mb-1 md:mb-2">{stat.number}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-orange-400 mb-1 md:mb-2">
+                    <CountUp
+                      from={0}
+                      to={stat.number}
+                      separator=","
+                      direction="up"
+                      duration={0.5}
+                      className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-orange-400"
+                    />
+                    {stat.suffix}
+                  </div>
                   <div className="text-gray-600 text-xs sm:text-sm md:text-base font-semibold">{stat.label}</div>
                 </div>
               ))}
