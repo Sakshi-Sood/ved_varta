@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import ProductCard from "../../components/ProductCard";
+import ProductModal from "../../components/ProductModal";
 import Button from "../../components/Button";
 import { products, getCategories } from "@/data/products";
 import BannerCarousel from "@/components/BannerCarousel";
@@ -9,13 +11,35 @@ import { productBanners } from "@/data/banner";
 import CTA from "@/components/CTA";
 
 const ProductsPage = () => {
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const categories = ["All", ...getCategories()];
+
+  // Handle product query parameter
+  useEffect(() => {
+    const productId = searchParams.get("product");
+    if (productId) {
+      const product = products.find((p) => p.id === parseInt(productId));
+      if (product) {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+      }
+    }
+  }, [searchParams]);
 
   const filteredProducts = selectedCategory === "All"
     ? products
     : products.filter(product => product.category === selectedCategory);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+    // Remove query parameter from URL
+    window.history.replaceState({}, "", "/products");
+  };
 
   const categoryIcons = {
     "Gemstones": "💎",
@@ -100,6 +124,15 @@ const ProductsPage = () => {
 
       {/* CTA Section */}
       <CTA title="Need Help Choosing?" description="Our expert Acharya Anoop Tripathi can help you find the perfect product based on your birth chart" />
+
+      {/* Product Modal from URL parameter */}
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
     </main>
   );
 };
