@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 ::selection {
-  background-color: theme('colors.amber.600');
-  color: theme('colors.white');
+  background-color: theme("colors.amber.600");
+  color: theme("colors.white");
 }
 
 .line-clamp-3 {
@@ -18,7 +18,12 @@
 
 /* Themed gradient text utility */
 .textGradient {
-  background: linear-gradient(90deg, theme('colors.amber.700'), theme('colors.amber.600'), theme('colors.yellow.500'));
+  background: linear-gradient(
+    90deg,
+    theme("colors.amber.700"),
+    theme("colors.amber.600"),
+    theme("colors.yellow.500")
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -139,4 +144,22 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
 }
