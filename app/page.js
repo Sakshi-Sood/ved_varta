@@ -1,13 +1,16 @@
-import Hero from "../sections/Hero";
+import BannerCarousel from "@/components/BannerCarousel";
 import BlogPreview from "../sections/BlogPreview";
 import Expertise from "../components/Expertise";
 import FeaturedProducts from "../sections/FeaturedProducts";
 import YouTubeVideos from "../sections/YouTubeVideos";
+import { homeBanners } from "@/data/banner";
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80 min-h-screen">
-      <Hero />
+    <main>
+      <div className="mb-10 md:mb-15 px-5 sm:px-10 lg:px-44 pt-5">
+        <BannerCarousel banners={homeBanners} />
+      </div>
       <Expertise />
       <FeaturedProducts />
       <BlogPreview />

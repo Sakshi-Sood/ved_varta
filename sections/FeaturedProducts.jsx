@@ -131,26 +131,6 @@ export default function FeaturedProducts() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll-left {
-          animation: scroll-left 40s linear infinite;
-          will-change: transform;
-        }
-
-        .animate-scroll-left:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

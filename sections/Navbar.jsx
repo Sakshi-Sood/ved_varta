@@ -76,13 +76,9 @@ const Navbar = () => {
     const base =
       "sticky top-0 z-50 transform transition-transform duration-300";
     const translate = isVisible ? "translate-y-0" : "-translate-y-full";
-    const bg = isMobileMenuOpen
-      ? "bg-orange-100/95"
-      : isAtTop
-      ? "bg-white/40 shadow-none"
-      : "bg-amber-50/90 shadow-sm";
+    const bg = isMobileMenuOpen && "bg-orange-100/95";
 
-    return `${base} ${translate} ${bg} px-4 sm:px-6 lg:px-8 py-4`;
+    return `${base} ${translate} ${bg} px-4 sm:px-6 lg:px-8 py-1 bg-white/90 backdrop-blur-sm border-b border-amber-600/30`;
   }, [isVisible, isMobileMenuOpen, isAtTop]);
 
   const poojaIcon = useMemo(
@@ -119,13 +115,13 @@ const Navbar = () => {
             onClick={closeMobileMenu}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/Logo.png"
               alt="Logo"
-              width={60}
-              height={60}
+              width={190}
+              height={190}
               className="object-cover"
             />
-            <span className="text-orange-400">VedVarta</span>
+            {/* <span className="text-orange-400">VedVarta</span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -164,9 +160,8 @@ const Navbar = () => {
             aria-label="Toggle mobile menu"
           >
             <i
-              className={`fas ${
-                isMobileMenuOpen ? "fa-times" : "fa-bars"
-              } text-2xl`}
+              className={`fas ${isMobileMenuOpen ? "fa-times" : "fa-bars"
+                } text-2xl`}
               aria-hidden="true"
             />
           </button>
@@ -175,18 +170,16 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
       />
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="p-6">
           {/* Mobile Menu Header */}

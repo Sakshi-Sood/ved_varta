@@ -134,7 +134,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-amber-300/50 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-xs sm:text-sm">
           <div className="text-gray-600 text-center md:text-left">
-            © 2025 VedVarta. All rights reserved.
+            © 2025 Astrologer Anoop Tripathi. All rights reserved.
           </div>
 
           <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-xs sm:text-sm">
