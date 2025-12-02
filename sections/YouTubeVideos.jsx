@@ -16,7 +16,7 @@ const YouTubeVideos = () => {
     (async () => {
       try {
         const res = await fetch("/api/youtube/latest", { cache: "no-store" });
-        if (!res.ok) throw new Error("Failed to load videos");
+        // if (!res.ok) throw new Error("Failed to load videos");
         const data = await res.json();
         if (mounted) {
           const vids = Array.isArray(data.videos) ? data.videos : [];
@@ -123,11 +123,10 @@ const YouTubeVideos = () => {
                     <div
                       key={video.id}
                       onClick={() => setSelectedVideo(video)}
-                      className={`p-2 md:p-3 rounded-lg cursor-pointer transition-all duration-300 border ${
-                        selectedVideo.id === video.id
-                          ? "bg-amber-50 border-amber-300 shadow-md"
-                          : "bg-white border-gray-200 hover:bg-amber-50 hover:border-amber-200"
-                      }`}
+                      className={`p-2 md:p-3 rounded-lg cursor-pointer transition-all duration-300 border ${selectedVideo.id === video.id
+                        ? "bg-amber-50 border-amber-300 shadow-md"
+                        : "bg-white border-gray-200 hover:bg-amber-50 hover:border-amber-200"
+                        }`}
                     >
                       {/* Video Thumbnail */}
                       <div className="relative aspect-video mb-1 md:mb-2 bg-gray-200 rounded overflow-hidden">

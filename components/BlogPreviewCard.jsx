@@ -5,6 +5,11 @@ const BlogPreviewCard = ({ blog }) => {
   const blogId = blog.$id || blog.id;
 
   const getImageUrl = () => {
+    // Check for new Hostinger URL first
+    if (blog.imageUrl) {
+      return blog.imageUrl;
+    }
+    // Fallback to old Appwrite imageId for backward compatibility
     if (blog.imageId) {
       return `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID}/files/${blog.imageId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`;
     }

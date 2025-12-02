@@ -4,9 +4,14 @@ import Image from "next/image";
 const BlogCard = ({ blog, featured = false }) => {
   // Handle both Appwrite format ($id) and legacy format (id)
   const blogId = blog.$id || blog.id;
-  
-  // Get image URL - if imageId exists, construct Appwrite storage URL, otherwise use direct image path
+
+  // Get image URL - check Hostinger URL first, then Appwrite, then fallback
   const getImageUrl = () => {
+    // Check for new Hostinger URL first
+    if (blog.imageUrl) {
+      return blog.imageUrl;
+    }
+    // Fallback to old Appwrite imageId for backward compatibility
     if (blog.imageId) {
       return `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ID}/files/${blog.imageId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`;
     }
@@ -65,17 +70,15 @@ const BlogCard = ({ blog, featured = false }) => {
         </div>
 
         <h3
-          className={`font-bold text-gray-800 mb-3 hover:text-orange-600 transition-colors ${
-            featured ? "text-2xl lg:text-3xl" : "text-xl"
-          }`}
+          className={`font-bold text-gray-800 mb-3 hover:text-orange-600 transition-colors ${featured ? "text-2xl lg:text-3xl" : "text-xl"
+            }`}
         >
           <Link href={`/blogs/${blogId}`}>{blog.title}</Link>
         </h3>
 
         <p
-          className={`text-gray-700 mb-6 ${
-            featured ? "text-lg leading-relaxed min-h-[80px]" : "text-base"
-          } flex-1`}
+          className={`text-gray-700 mb-6 ${featured ? "text-lg leading-relaxed min-h-[80px]" : "text-base"
+            } flex-1`}
         >
           {blog.excerpt}
         </p>
