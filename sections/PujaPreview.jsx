@@ -1,23 +1,44 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { pujasData } from "@/data/pujas";
 import BlurText from "@/components/shadcn/BlurText";
 import Button from "@/components/Button";
+
+// Featured deity cards for puja preview
+const pujaCards = [
+  {
+    id: 1,
+    name: "Lord Vishnu Puja",
+    image: "/images/lakshmiPujaCard.png",
+  },
+  {
+    id: 2,
+    name: "Lord Shiva Puja",
+    image: "/images/shivPujaCard.png",
+  },
+  {
+    id: 3,
+    name: "Lord Ganesha Puja",
+    image: "/images/ganeshPujaCard.png",
+  },
+  {
+    id: 4,
+    name: "Goddess Lakshmi Puja",
+    image: "/images/durgapujaCard.png",
+  },
+  {
+    id: 5,
+    name: "Vastu Puja",
+    image: "/images/vastuPujaCard.png",
+  },
+];
 
 export default function PujaPreview() {
   const scrollContainerRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-
-  // Pick featured pujas (popular ones first, then others)
-  const featuredPujas = useMemo(() => {
-    const popular = pujasData.filter((p) => p.popular);
-    const others = pujasData.filter((p) => !p.popular);
-    return [...popular, ...others];
-  }, []);
 
   const checkScrollButtons = () => {
     if (scrollContainerRef.current) {
@@ -31,7 +52,7 @@ export default function PujaPreview() {
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
       const cardWidth = scrollContainerRef.current.offsetWidth / 4;
-      const scrollAmount = cardWidth * 4;
+      const scrollAmount = cardWidth * 2;
       scrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -47,7 +68,7 @@ export default function PujaPreview() {
         <div className="text-center mb-10 sm:mb-14">
           <BlurText
             text="Sacred Puja Services"
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 textGradient justify-center"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 textGradient justify-center"
             delay={50}
           />
           <p className="text-gray-600 sm:text-lg max-w-3xl mx-auto">
@@ -63,11 +84,10 @@ export default function PujaPreview() {
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 ${
-              canScrollLeft
-                ? "opacity-100 hover:bg-amber-50 hover:shadow-xl cursor-pointer"
-                : "opacity-0 pointer-events-none"
-            }`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 ${canScrollLeft
+              ? "opacity-100 hover:bg-amber-50 hover:shadow-xl cursor-pointer"
+              : "opacity-0 pointer-events-none"
+              }`}
           >
             <i className="fas fa-chevron-left text-amber-600"></i>
           </button>
@@ -76,18 +96,14 @@ export default function PujaPreview() {
           <div
             ref={scrollContainerRef}
             onScroll={checkScrollButtons}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide scroll-smooth px-1"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {featuredPujas.map((puja) => (
+            {pujaCards.map((puja) => (
               <Link
                 key={puja.id}
-                href={`https://wa.me/+919090252584?text=I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(
-                  puja.name
-                )}.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex-shrink-0 w-[calc(50%-0.5rem)] lg:w-[calc(25%-1.125rem)] aspect-[2/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500 cursor-pointer"
+                href="/bookPuja"
+                className="group relative flex-shrink-0 w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] aspect-[3/4] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
               >
                 {/* Main Image */}
                 <Image
@@ -95,32 +111,33 @@ export default function PujaPreview() {
                   alt={puja.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
 
-                {/* Subtle gradient at bottom for text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                {/* Default gradient at bottom for text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                {/* Top Overlay - fades in from top on hover */}
-                <div className="absolute top-0 left-0 right-0 h-40 opacity-0 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none">
+                {/* Top Overlay - slides down on hover */}
+                <div className="absolute top-0 left-0 right-0 h-[45%] -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none z-10 opacity-50">
                   <Image
                     src="/images/overlay.svg"
                     alt=""
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-bottom"
+                    style={{ objectPosition: "center bottom" }}
                   />
                 </div>
 
-                {/* Puja Name */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-lg font-serif">
+                {/* Puja Name - always visible at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 z-10 text-center">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white drop-shadow-lg font-serif tracking-wide">
                     {puja.name}
                   </h3>
                 </div>
 
-                {/* Hover Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-amber-700 rounded-full text-sm font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                {/* Hover Button - appears at bottom center on hover */}
+                <div className="absolute bottom-16 sm:bottom-20 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                  <span className="px-4 py-2 bg-white/70 backdrop-blur-sm text-amber-700 rounded-full text-xs font-semibold shadow-lg border border-amber-100 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-white/80">
                     Explore Poojas
                   </span>
                 </div>
@@ -132,11 +149,10 @@ export default function PujaPreview() {
           <button
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 ${
-              canScrollRight
-                ? "opacity-100 hover:bg-amber-50 hover:shadow-xl cursor-pointer"
-                : "opacity-0 pointer-events-none"
-            }`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300 ${canScrollRight
+              ? "opacity-100 hover:bg-amber-50 hover:shadow-xl cursor-pointer"
+              : "opacity-0 pointer-events-none"
+              }`}
           >
             <i className="fas fa-chevron-right text-amber-600"></i>
           </button>
