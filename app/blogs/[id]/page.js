@@ -7,11 +7,6 @@ import CTA from "@/components/CTA";
 import { use, useState, useEffect } from 'react';
 import { databases, DATABASE_ID, BLOGS_COLLECTION_ID } from '@/lib/appwrite';
 
-// Required for static export - returns empty array as blogs are fetched dynamically
-export function generateStaticParams() {
-  return [];
-}
-
 export default function BlogPost({ params }) {
   const resolvedParams = use(params);
   const blogId = resolvedParams.id;
