@@ -16,7 +16,7 @@ const YouTubeVideos = () => {
     (async () => {
       try {
         const res = await fetch("/api/youtube/latest", { cache: "no-store" });
-        if (!res.ok) throw new Error("Failed to load videos");
+        // if (!res.ok) throw new Error("Failed to load videos");
         const data = await res.json();
         if (mounted) {
           const vids = Array.isArray(data.videos) ? data.videos : [];
@@ -53,9 +53,9 @@ const YouTubeVideos = () => {
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Main Video Player */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-200">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-amber-200 flex flex-col h-80 sm:h-96 md:h-[28rem] lg:h-[596px]">
               {/* Video Embed */}
-              <div className="relative bg-gray-900 h-48 sm:h-56 md:h-64 lg:h-96">
+              <div className="relative bg-gray-900 flex-grow">
                 {loading ? (
                   <div className="w-full h-full flex items-center justify-center text-white/80">
                     Loading videos…
@@ -87,12 +87,23 @@ const YouTubeVideos = () => {
                     </p>
                   </>
                 )}
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-amber-600 font-medium">
-                    {selectedVideo?.duration
-                      ? `Duration: ${selectedVideo.duration}`
-                      : ""}
-                  </span>
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-4">
+                    <span className="text-sm text-amber-600 font-medium">
+                      {selectedVideo?.duration
+                        ? `Duration: ${selectedVideo.duration}`
+                        : ""}
+                    </span>
+                    {selectedVideo?.publishedAt && (
+                      <span className="text-sm text-gray-500">
+                        Uploaded:{" "}
+                        {new Date(selectedVideo.publishedAt).toLocaleDateString(
+                          "en-IN",
+                          { day: "numeric", month: "short", year: "numeric" }
+                        )}
+                      </span>
+                    )}
+                  </div>
                   <Link
                     href={
                       selectedVideo

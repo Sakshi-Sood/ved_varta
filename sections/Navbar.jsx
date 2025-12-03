@@ -76,13 +76,9 @@ const Navbar = () => {
     const base =
       "sticky top-0 z-50 transform transition-transform duration-300";
     const translate = isVisible ? "translate-y-0" : "-translate-y-full";
-    const bg = isMobileMenuOpen
-      ? "bg-orange-100/95"
-      : isAtTop
-      ? "bg-white/40 shadow-none"
-      : "bg-amber-50/90 shadow-sm";
+    const bg = isMobileMenuOpen && "bg-orange-100/95";
 
-    return `${base} ${translate} ${bg} px-4 sm:px-6 lg:px-8 py-4`;
+    return `${base} ${translate} ${bg} px-4 sm:px-6 md:px-8 lg:px-10 py-1 md:py-2 bg-white/90 backdrop-blur-sm border-b border-amber-600/30`;
   }, [isVisible, isMobileMenuOpen, isAtTop]);
 
   const poojaIcon = useMemo(
@@ -119,13 +115,12 @@ const Navbar = () => {
             onClick={closeMobileMenu}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/Logo.png"
               alt="Logo"
-              width={60}
-              height={60}
+              width={190}
+              height={190}
               className="object-cover"
             />
-            <span className="text-orange-400">VedVarta</span>
           </Link>
 
           {/* Desktop Navigation */}

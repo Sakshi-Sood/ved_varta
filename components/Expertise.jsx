@@ -3,11 +3,10 @@
 import Image from "next/image";
 import { expertiseAreas } from "../utils";
 import BlurText from "./shadcn/BlurText";
-import { useEffect, useState } from "react";
 
 const Expertise = () => {
   return (
-    <section className="px-3 sm:px-10 lg:px-44">
+    <section id="services" className="px-3 sm:px-10 lg:px-44">
       <div className="text-center mb-4">
         <div className="flex text-3xl sm:text-4xl md:text-5xl justify-center font-semibold">
           <BlurText
@@ -25,7 +24,6 @@ const Expertise = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 cursor-default">
           {expertiseAreas.map((area, index) => (
             <div
-              href="/services"
               key={index}
               className="bg-yellow-50/90 hover:bg-amber-100/90 rounded-xl p-3 flex items-center gap-2 sm:gap-4 border border-orange-200 hover:shadow-md hover:border-orange-300 hover:scale-105 transition-all duration-300"
             >

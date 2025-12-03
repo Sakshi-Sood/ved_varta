@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "VedVarta - Vedic Astrology Solutions",
+  title: "Astrologer Anoop Tripathi - Vedic Astrology Solutions",
   description: "Discover the power of Vedic astrology to solve life's challenges. Get personalized guidance, remedies, and spiritual solutions from experienced astrologers.",
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <script src="https://kit.fontawesome.com/d6cddf6b31.js" crossOrigin="anonymous" async></script>
       </head>
       <body
-        className={`${poppins.className} antialiased bg-amber-100/85`}
+        className={`${poppins.className} antialiased bg-gradient-to-br from-yellow-200/80 via-yellow-100/80 to-amber-200/80`}
       >
         <Navbar />
         {children}

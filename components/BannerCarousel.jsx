@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,7 +35,7 @@ export default function BannerCarousel({ banners = [] }) {
     }
   }, [count, index]);
 
-  // If no banners passed, render a graceful placeholder
+  // If no banners passed, render a placeholder
   if (count === 0) {
     console.log("No banners passed as props to BannerCarousel");
 
@@ -107,11 +107,10 @@ export default function BannerCarousel({ banners = [] }) {
               key={i}
               aria-label={`Go to banner ${i + 1}`}
               onClick={() => setIndex(i)}
-              className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-all cursor-pointer ${
-                i === index
-                  ? "bg-amber-500 w-4 sm:w-6"
-                  : "bg-amber-400/70 hover:bg-amber-400/90"
-              }`}
+              className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full transition-all cursor-pointer ${i === index
+                ? "bg-amber-500 w-4 sm:w-6"
+                : "bg-amber-400/70 hover:bg-amber-400/90"
+                }`}
             />
           ))}
         </div>

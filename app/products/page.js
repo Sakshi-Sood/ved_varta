@@ -123,7 +123,7 @@ const ProductsContent = () => {
       </section>
 
       {/* CTA Section */}
-      <CTA title="Need Help Choosing?" description="Our expert Acharya Anoop Tripathi can help you find the perfect product based on your birth chart" />
+      <CTA title="Need Help Choosing?" description="Our expert Acharya Anoop Tripathi can help you find the perfect product based on your birth chart" className="mb-12" />
 
       {/* Product Modal from URL parameter */}
       {selectedProduct && (
