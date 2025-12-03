@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { databases, ID, DATABASE_ID, BLOGS_COLLECTION_ID } from '@/lib/appwrite';
 import { Query } from 'appwrite';
 import { logout, getCurrentUser } from '@/lib/auth';
@@ -532,10 +533,11 @@ function AdminDashboardContent() {
             {/* Modal Body - Image */}
             <div className="p-4 bg-gray-100">
               <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-white shadow-inner">
-                <img
+                <Image
                   src={imagePreview || editingBlog?.imageUrl}
                   alt="Preview"
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
               {formData.image && (
