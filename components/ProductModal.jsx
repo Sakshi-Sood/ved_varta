@@ -1,11 +1,29 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
 
 const ProductModal = ({ product, isOpen, onClose }) => {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  // Handle animation states
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      // Delay animation to ensure DOM is ready
+      const timer = setTimeout(() => setIsAnimating(true), 10);
+      return () => clearTimeout(timer);
+    } else {
+      setIsAnimating(false);
+      // Wait for fade out animation before removing from DOM
+      const timer = setTimeout(() => setShouldRender(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
   // Close modal on Escape key press
   useEffect(() => {
     const handleEscape = (e) => {
@@ -25,17 +43,21 @@ const ProductModal = ({ product, isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen || !product) return null;
+  if (!shouldRender || !product) return null;
 
   const { name, category, description, image, benefits } = product;
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4"
+      className={`fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${
+        isAnimating ? "opacity-100" : "opacity-0"
+      }`}
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className={`bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transition-all duration-300 ${
+          isAnimating ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
