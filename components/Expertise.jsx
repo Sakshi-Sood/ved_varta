@@ -6,7 +6,7 @@ import BlurText from "./shadcn/BlurText";
 
 const Expertise = () => {
   return (
-    <section className="px-3 sm:px-10 lg:px-44">
+    <section id="services" className="px-3 sm:px-10 lg:px-44">
       <div className="text-center mb-4">
         <div className="flex text-3xl sm:text-4xl md:text-5xl justify-center font-semibold">
           <BlurText

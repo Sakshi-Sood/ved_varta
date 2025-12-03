@@ -7,10 +7,10 @@ import Button from "./Button";
 import { navLinks } from "@/sections/Navbar";
 
 const socialLinks = [
-  { href: "#", label: "Instagram", icon: "fab fa-instagram" },
-  { href: "#", label: "Twitter", icon: "fab fa-twitter" },
-  { href: "#", label: "Facebook", icon: "fab fa-facebook-f" },
-  { href: "#", label: "YouTube", icon: "fab fa-youtube" },
+  { href: "https://www.instagram.com/acharyaanooptripathi", label: "Instagram", icon: "fab fa-instagram" },
+  { href: "https://x.com/achary_anoop", label: "X", icon: "fab fa-x-twitter" },
+  { href: "https://www.facebook.com/profile.php?id=100004194258864&mibextid=ZbWKwL ", label: "Facebook", icon: "fab fa-facebook-f" },
+  { href: "https://www.youtube.com/@AcharyaAnoopTripathi", label: "YouTube", icon: "fab fa-youtube" },
 ];
 
 const serviceLinks = [
@@ -57,6 +57,8 @@ const Footer = () => {
                 <Link
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-9 sm:h-9 text-sm sm:text-base bg-amber-600 hover:bg-amber-700 text-white rounded-full flex items-center justify-center transition-colors"
                   aria-label={label}
                 >
@@ -75,7 +77,7 @@ const Footer = () => {
               {serviceLinks.map(({ href, text }) => (
                 <li key={href}>
                   <Link
-                    href={href}
+                    href={"#services"}
                     className="text-gray-600 hover:text-amber-600 transition-colors"
                   >
                     {text}
@@ -94,7 +96,7 @@ const Footer = () => {
               {problemLinks.map(({ href, text }) => (
                 <li key={href}>
                   <Link
-                    href={href}
+                    href={"/"}
                     className="text-gray-600 hover:text-amber-600 transition-colors"
                   >
                     {text}
