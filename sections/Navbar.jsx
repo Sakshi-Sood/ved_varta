@@ -115,7 +115,7 @@ const Navbar = () => {
             onClick={closeMobileMenu}
           >
             <Image
-              src="/images/Logo.png"
+              src="/images/logo.png"
               alt="Logo"
               width={190}
               height={190}
@@ -159,9 +159,8 @@ const Navbar = () => {
             aria-label="Toggle mobile menu"
           >
             <i
-              className={`fas ${
-                isMobileMenuOpen ? "fa-times" : "fa-bars"
-              } text-2xl`}
+              className={`fas ${isMobileMenuOpen ? "fa-times" : "fa-bars"
+                } text-2xl`}
               aria-hidden="true"
             />
           </button>
@@ -170,18 +169,16 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
       />
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="p-6">
           {/* Mobile Menu Header */}
