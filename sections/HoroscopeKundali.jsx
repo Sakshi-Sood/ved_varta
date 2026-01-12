@@ -45,13 +45,15 @@ const HoroscopeKundali = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/prokerala/horoscope?sign=${selectedSign}`);
+        const response = await fetch(
+          `/api/prokerala/horoscope?sign=${selectedSign}`
+        );
         const data = await response.json();
-        
+
         if (data.error) {
           throw new Error(data.error);
         }
-        
+
         setHoroscope(data.data);
       } catch (err) {
         setError(err.message || "Failed to fetch horoscope");
@@ -127,7 +129,7 @@ const HoroscopeKundali = () => {
                 : "bg-white text-amber-600 border-2 border-amber-400 hover:bg-amber-50"
             }`}
           >
-            <i className="fas fa-sun mr-2"></i>
+            <i className="fas fa-sun mr-2" aria-label="true"></i>
             Daily Horoscope
           </button>
           <button
@@ -138,7 +140,7 @@ const HoroscopeKundali = () => {
                 : "bg-white text-amber-600 border-2 border-amber-400 hover:bg-amber-50"
             }`}
           >
-            <i className="fas fa-heart mr-2"></i>
+            <i className="fas fa-heart mr-2" aria-label="true"></i>
             Kundali Matching
           </button>
         </div>
@@ -163,8 +165,12 @@ const HoroscopeKundali = () => {
                     }`}
                     title={sign.dates}
                   >
-                    <span className="text-2xl sm:text-3xl mb-1">{sign.icon}</span>
-                    <span className="text-xs font-medium hidden sm:block">{sign.name}</span>
+                    <span className="text-2xl sm:text-3xl mb-1">
+                      {sign.icon}
+                    </span>
+                    <span className="text-xs font-medium hidden sm:block">
+                      {sign.name}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -175,7 +181,9 @@ const HoroscopeKundali = () => {
               {loading ? (
                 <div className="text-center py-8">
                   <div className="inline-block animate-spin rounded-full h-10 w-10 border-b-2 border-orange-500"></div>
-                  <p className="mt-3 text-gray-700">Loading your horoscope...</p>
+                  <p className="mt-3 text-gray-700">
+                    Loading your horoscope...
+                  </p>
                 </div>
               ) : error ? (
                 <div className="text-center py-8">
@@ -192,22 +200,30 @@ const HoroscopeKundali = () => {
                 <div>
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-5xl">
-                      {zodiacSigns.find((s) => s.name.toLowerCase() === selectedSign)?.icon}
+                      {
+                        zodiacSigns.find(
+                          (s) => s.name.toLowerCase() === selectedSign
+                        )?.icon
+                      }
                     </span>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-800 capitalize">
                         {selectedSign}
                       </h3>
                       <p className="text-gray-600 text-sm">
-                        {zodiacSigns.find((s) => s.name.toLowerCase() === selectedSign)?.dates}
+                        {
+                          zodiacSigns.find(
+                            (s) => s.name.toLowerCase() === selectedSign
+                          )?.dates
+                        }
                       </p>
                     </div>
                   </div>
                   <div className="prose prose-amber max-w-none">
                     <p className="text-gray-700 leading-relaxed text-justify">
-                      {horoscope?.daily_prediction?.prediction || 
-                       horoscope?.prediction || 
-                       "Your horoscope reading will appear here. Stay positive and embrace the cosmic energy of the day!"}
+                      {horoscope?.daily_prediction?.prediction ||
+                        horoscope?.prediction ||
+                        "Your horoscope reading will appear here. Stay positive and embrace the cosmic energy of the day!"}
                     </p>
                   </div>
                   {horoscope?.lucky_number && (
@@ -343,7 +359,9 @@ const HoroscopeKundali = () => {
 
               <div className="text-center">
                 <Button
-                  text={kundaliLoading ? "Calculating..." : "Check Compatibility"}
+                  text={
+                    kundaliLoading ? "Calculating..." : "Check Compatibility"
+                  }
                   type="submit"
                   fill
                   disabled={kundaliLoading}
@@ -372,13 +390,17 @@ const HoroscopeKundali = () => {
                   <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white shadow-lg">
                     <div>
                       <span className="text-4xl font-bold">
-                        {kundaliResult?.total_points || kundaliResult?.guna_milan?.total_points || "N/A"}
+                        {kundaliResult?.total_points ||
+                          kundaliResult?.guna_milan?.total_points ||
+                          "N/A"}
                       </span>
                       <span className="text-lg">/36</span>
                     </div>
                   </div>
                   <p className="mt-3 text-gray-700 font-medium">
-                    {(kundaliResult?.total_points || kundaliResult?.guna_milan?.total_points || 0) >= 18
+                    {(kundaliResult?.total_points ||
+                      kundaliResult?.guna_milan?.total_points ||
+                      0) >= 18
                       ? "✨ Good Match! The stars favor this union."
                       : "⚠️ Further consultation recommended."}
                   </p>
@@ -387,7 +409,11 @@ const HoroscopeKundali = () => {
                 {/* Guna Details */}
                 {(kundaliResult?.guna_milan?.guna || kundaliResult?.gunas) && (
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {(kundaliResult?.guna_milan?.guna || kundaliResult?.gunas || []).map((guna, index) => (
+                    {(
+                      kundaliResult?.guna_milan?.guna ||
+                      kundaliResult?.gunas ||
+                      []
+                    ).map((guna, index) => (
                       <div
                         key={index}
                         className="bg-white rounded-lg p-3 text-center shadow-sm"
@@ -396,7 +422,8 @@ const HoroscopeKundali = () => {
                           {guna.name}
                         </h5>
                         <p className="text-lg font-bold text-gray-800">
-                          {guna.obtained_points || guna.points || 0}/{guna.maximum_points || guna.max_points || 0}
+                          {guna.obtained_points || guna.points || 0}/
+                          {guna.maximum_points || guna.max_points || 0}
                         </p>
                       </div>
                     ))}
@@ -405,7 +432,8 @@ const HoroscopeKundali = () => {
 
                 <p className="mt-6 text-center text-sm text-gray-600">
                   <i className="fas fa-info-circle mr-1"></i>
-                  For detailed analysis, please consult with Acharya Ji for personalized guidance.
+                  For detailed analysis, please consult with Acharya Ji for
+                  personalized guidance.
                 </p>
               </div>
             )}
