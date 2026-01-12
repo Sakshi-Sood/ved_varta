@@ -730,7 +730,15 @@
 }
 
 /* Zodiac Pill Hover Styles with Dynamic Colors */
-.zodiac-pill:hover {
+.zodiac-pill:not(.shadow-lg):hover {
   border-color: var(--hover-color, #fbbf24) !important;
   background-color: var(--hover-bg, #fffbeb) !important;
+}
+
+.zodiac-pill:not(.shadow-lg):hover span:first-child {
+  color: var(--hover-color, #fbbf24) !important;
+}
+
+.zodiac-pill:not(.shadow-lg):hover span:last-child {
+  color: #374151 !important;
 }
