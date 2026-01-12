@@ -34,14 +34,18 @@ const PujaCard = ({ puja }) => {
 
         {/* Title and Description */}
         <h3 className="text-xl font-bold text-gray-800 mb-2">{name}</h3>
-        <p className={`text-gray-700 text-sm mb-2 leading-relaxed ${!showFullDescription ? 'line-clamp-4' : ''}`}>
+        <p
+          className={`text-gray-700 text-sm mb-2 leading-relaxed ${
+            !showFullDescription ? "line-clamp-4" : ""
+          }`}
+        >
           {fullDescription}
         </p>
-        <button 
+        <button
           onClick={() => setShowFullDescription(!showFullDescription)}
           className="text-amber-600 hover:text-amber-700 text-xs font-semibold mb-4 text-left"
         >
-          {showFullDescription ? 'Show less' : 'Read more'}
+          {showFullDescription ? "Show less" : "Read more"}
         </button>
 
         {/* Spacer to push benefits and button to bottom */}
@@ -49,10 +53,15 @@ const PujaCard = ({ puja }) => {
 
         {/* Benefits - Horizontal */}
         <div className="mb-4">
-          <h4 className="font-semibold text-gray-800 mb-2 text-sm">Key Benefits:</h4>
+          <h4 className="font-semibold text-gray-800 mb-2 text-sm">
+            Key Benefits:
+          </h4>
           <div className="flex flex-wrap gap-2">
             {benefits.slice(0, 3).map((benefit, index) => (
-              <span key={index} className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full flex items-center">
+              <span
+                key={index}
+                className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full flex items-center"
+              >
                 {benefit}
               </span>
             ))}
