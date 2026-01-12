@@ -655,51 +655,6 @@ const DailyHoroscope = () => {
         variants={itemVariants}
         className="lg:order-3 order-3 bg-white rounded-2xl p-6 shadow-xl shadow-gray-200/50"
       >
-        {/* Lucky badges */}
-        <div className="flex gap-4 mb-6">
-          {/* Lucky Number */}
-          <motion.div
-            className="flex-1 flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100"
-            whileHover={{ scale: 1.02, backgroundColor: "#f9fafb" }}
-          >
-            <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-sm">5</span>
-            </div>
-            <div>
-              <span className="block text-sm uppercase tracking-wider text-gray-500 font-medium">
-                Lucky Number
-              </span>
-              <span className="text-gray-900 font-semibold">
-                {horoscope?.lucky_number || "5, 9"}
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Lucky Color */}
-          <motion.div
-            className="flex-1 flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100"
-            whileHover={{ scale: 1.02, backgroundColor: "#f9fafb" }}
-          >
-            <div className="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#db2777">
-                <path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0 1 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 0 0-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 0 1 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z" />
-                <circle cx="6.5" cy="11.5" r="1.5" />
-                <circle cx="9.5" cy="7.5" r="1.5" />
-                <circle cx="14.5" cy="7.5" r="1.5" />
-                <circle cx="17.5" cy="11.5" r="1.5" />
-              </svg>
-            </div>
-            <div>
-              <span className="block text-sm uppercase tracking-wider text-gray-500 font-medium">
-                Lucky Color
-              </span>
-              <span className="text-gray-900 font-semibold">
-                {horoscope?.lucky_color || "Gold"}
-              </span>
-            </div>
-          </motion.div>
-        </div>
-
         {/* Today's Prediction */}
         <div className="mb-6">
           <h3 className="text-xl font-serif italic font-semibold text-black mb-4">
@@ -746,15 +701,9 @@ const DailyHoroscope = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {horoscope?.daily_prediction?.prediction ||
-                    horoscope?.prediction ||
-                    `You are full of energy and ready to take on the world today, ${selectedSignData?.name}. The sun's position suggests a strong drive to achieve your personal goals. However, take a moment to ensure your roar doesn't drown out the valuable input of those around you. Collaboration is key to your success today.`}
-                </p>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Financially, a surprise gain is on the cards. Romance may take
-                  a backseat as you focus on career, but a small gesture towards
-                  your partner will go a long way.
+                  {horoscope?.daily_prediction?.prediction ||
+                    "Unable to load prediction. Please try again."}
                 </p>
               </motion.div>
             )}

@@ -1,8 +1,6 @@
-// Server route to fetch daily horoscope from Prokerala API with Appwrite caching
+// Server route to fetch daily horoscope from Prokerala API with caching
 
 import { Client, Databases, ID, Query } from 'node-appwrite';
-
-export const revalidate = 3600; // Cache for 1 hour
 
 // Initialize Appwrite server client
 function getAppwriteClient() {
@@ -14,8 +12,21 @@ function getAppwriteClient() {
   return new Databases(client);
 }
 
-// Helper function to get access token
+// Token cache (in-memory for server runtime)
+let tokenCache = {
+  token: null,
+  expiresAt: 0,
+};
+
+// Helper function to get access token with caching
 async function getAccessToken() {
+  // Check if we have a valid cached token
+  if (tokenCache.token && Date.now() < tokenCache.expiresAt) {
+    console.log('[Prokerala] Using cached access token');
+    return tokenCache.token;
+  }
+
+  console.log('[Prokerala] Fetching new access token');
   const clientId = process.env.NEXT_PUBLIC_PROKERALA_CLIENT_ID;
   const clientSecret = process.env.NEXT_PUBLIC_PROKERALA_API_SECRET;
 
@@ -32,6 +43,13 @@ async function getAccessToken() {
   }
 
   const data = await response.json();
+
+  // Cache the token for 50 minutes (tokens usually expire in 1 hour)
+  tokenCache = {
+    token: data.access_token,
+    expiresAt: Date.now() + (50 * 60 * 1000),
+  };
+
   return data.access_token;
 }
 
@@ -40,11 +58,16 @@ function getTodayDate() {
   return new Date().toISOString().split('T')[0];
 }
 
-// Check cache for existing horoscope
+// Check Appwrite cache for existing horoscope
 async function getCachedHoroscope(databases, sign, date) {
   try {
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_HOROSCOPE_CACHE_ID;
+
+    if (!collectionId) {
+      console.log('[Horoscope Cache] Collection ID not configured');
+      return null;
+    }
 
     const response = await databases.listDocuments(databaseId, collectionId, [
       Query.equal('sign', sign),
@@ -65,11 +88,16 @@ async function getCachedHoroscope(databases, sign, date) {
   }
 }
 
-// Save horoscope to cache
+// Save horoscope to Appwrite cache
 async function cacheHoroscope(databases, sign, date, data) {
   try {
     const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
     const collectionId = process.env.NEXT_PUBLIC_APPWRITE_HOROSCOPE_CACHE_ID;
+
+    if (!collectionId) {
+      console.log('[Horoscope Cache] Collection ID not configured, skipping cache');
+      return;
+    }
 
     await databases.createDocument(databaseId, collectionId, ID.unique(), {
       sign: sign,
@@ -85,6 +113,34 @@ async function cacheHoroscope(databases, sign, date, data) {
   }
 }
 
+// Fetch horoscope from Prokerala API
+async function fetchHoroscopeFromAPI(sign, date) {
+  const accessToken = await getAccessToken();
+
+  const horoscopeUrl = new URL('https://api.prokerala.com/v2/horoscope/daily');
+  horoscopeUrl.searchParams.set('datetime', `${date}T00:00:00+05:30`);
+  horoscopeUrl.searchParams.set('sign', sign);
+
+  console.log(`[Prokerala] Fetching horoscope for ${sign} on ${date}`);
+
+  const response = await fetch(horoscopeUrl.toString(), {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+    next: { revalidate: 86400 }, // Next.js fetch cache for 24 hours
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.errors?.[0]?.detail || 'Failed to fetch horoscope');
+  }
+
+  const data = await response.json();
+  console.log(`[Prokerala] Response structure:`, Object.keys(data));
+
+  return data;
+}
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -94,7 +150,7 @@ export async function GET(request) {
     // Initialize Appwrite
     const databases = getAppwriteClient();
 
-    // 1. Check cache first
+    // 1. Check Appwrite cache first (persisted across deployments)
     const cachedData = await getCachedHoroscope(databases, sign, today);
     if (cachedData) {
       return new Response(
@@ -103,33 +159,16 @@ export async function GET(request) {
           headers: {
             'content-type': 'application/json',
             'x-cache': 'HIT',
-            'cache-control': 'public, s-maxage=3600, stale-while-revalidate=600'
+            'cache-control': 'public, s-maxage=86400, stale-while-revalidate=3600'
           }
         }
       );
     }
 
     // 2. Cache miss - fetch from Prokerala API
-    const accessToken = await getAccessToken();
+    const data = await fetchHoroscopeFromAPI(sign, today);
 
-    const horoscopeUrl = new URL('https://api.prokerala.com/v2/horoscope/daily');
-    horoscopeUrl.searchParams.set('datetime', `${today}T00:00:00+05:30`);
-    horoscopeUrl.searchParams.set('sign', sign);
-
-    const response = await fetch(horoscopeUrl, {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.errors?.[0]?.detail || 'Failed to fetch horoscope');
-    }
-
-    const data = await response.json();
-
-    // 3. Store in cache for future requests
+    // 3. Store in Appwrite cache for persistence
     await cacheHoroscope(databases, sign, today, data);
 
     return new Response(
@@ -138,7 +177,7 @@ export async function GET(request) {
         headers: {
           'content-type': 'application/json',
           'x-cache': 'MISS',
-          'cache-control': 'public, s-maxage=3600, stale-while-revalidate=600'
+          'cache-control': 'public, s-maxage=86400, stale-while-revalidate=3600'
         }
       }
     );
