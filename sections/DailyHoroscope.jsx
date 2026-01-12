@@ -13,7 +13,7 @@ export const zodiacSigns = [
     dates: "July 23 - August 22",
     element: "Fire",
     ruler: "Sun",
-    color: "#F97316",
+    color: "#FB923C", // orange-400
     bgColor: "bg-orange-100",
   },
   {
@@ -22,7 +22,7 @@ export const zodiacSigns = [
     dates: "March 21 - April 19",
     element: "Fire",
     ruler: "Mars",
-    color: "#EF4444",
+    color: "#EF4444", // red-400
     bgColor: "bg-red-100",
   },
   {
@@ -31,7 +31,7 @@ export const zodiacSigns = [
     dates: "April 20 - May 20",
     element: "Earth",
     ruler: "Venus",
-    color: "#84CC16",
+    color: "#7ccf00", // lime-500
     bgColor: "bg-lime-100",
   },
   {
@@ -40,7 +40,7 @@ export const zodiacSigns = [
     dates: "May 21 - June 20",
     element: "Air",
     ruler: "Mercury",
-    color: "#FACC15",
+    color: "#FACC15", // yellow-400
     bgColor: "bg-yellow-100",
   },
   {
@@ -49,7 +49,7 @@ export const zodiacSigns = [
     dates: "June 21 - July 22",
     element: "Water",
     ruler: "Moon",
-    color: "#06B6D4",
+    color: "#00b8db", // cyan-400
     bgColor: "bg-cyan-100",
   },
   {
@@ -58,7 +58,7 @@ export const zodiacSigns = [
     dates: "August 23 - September 22",
     element: "Earth",
     ruler: "Mercury",
-    color: "#22C55E",
+    color: "#00c16a", // green-500
     bgColor: "bg-green-100",
   },
   {
@@ -67,7 +67,7 @@ export const zodiacSigns = [
     dates: "September 23 - October 22",
     element: "Air",
     ruler: "Venus",
-    color: "#EC4899",
+    color: "#fb64b6", // pink-400
     bgColor: "bg-pink-100",
   },
   {
@@ -76,7 +76,7 @@ export const zodiacSigns = [
     dates: "October 23 - November 21",
     element: "Water",
     ruler: "Pluto",
-    color: "#DC2626",
+    color: "#EF4444", // red-400
     bgColor: "bg-red-100",
   },
   {
@@ -85,7 +85,7 @@ export const zodiacSigns = [
     dates: "November 22 - December 21",
     element: "Fire",
     ruler: "Jupiter",
-    color: "#A855F7",
+    color: "#A855F7", // purple-400
     bgColor: "bg-purple-100",
   },
   {
@@ -94,7 +94,7 @@ export const zodiacSigns = [
     dates: "December 22 - January 19",
     element: "Earth",
     ruler: "Saturn",
-    color: "#6B7280",
+    color: "#6a7282", // gray-400
     bgColor: "bg-gray-100",
   },
   {
@@ -103,7 +103,7 @@ export const zodiacSigns = [
     dates: "January 20 - February 18",
     element: "Air",
     ruler: "Uranus",
-    color: "#3B82F6",
+    color: "#2b7fff", // blue-400
     bgColor: "bg-blue-100",
   },
   {
@@ -112,7 +112,7 @@ export const zodiacSigns = [
     dates: "February 19 - March 20",
     element: "Water",
     ruler: "Neptune",
-    color: "#8B5CF6",
+    color: "#9855ff", // violet-400
     bgColor: "bg-violet-100",
   },
 ];
