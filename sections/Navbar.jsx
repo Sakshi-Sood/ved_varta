@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Button from "../components/Button";
 import Link from "next/link";
+import { StarsIcon } from "lucide-react";
 
 export const navLinks = [
   { name: "Home", href: "/" },
@@ -78,7 +79,7 @@ const Navbar = () => {
     const translate = isVisible ? "translate-y-0" : "-translate-y-full";
     const bg = isMobileMenuOpen && "bg-orange-100/95";
 
-    return `${base} ${translate} ${bg} px-4 sm:px-6 md:px-8 lg:px-24 py-1 md:py-2 backdrop-blur-sm`;
+    return `${base} ${translate} ${bg} px-4 sm:px-6 md:px-8 lg:px-24 py-3 md:py-5 backdrop-blur-sm`;
   }, [isVisible, isMobileMenuOpen, isAtTop]);
 
   const whatsappIcon = useMemo(
@@ -102,10 +103,10 @@ const Navbar = () => {
             onClick={closeMobileMenu}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo3.png"
               alt="Logo"
-              width={240}
-              height={240}
+              width={250}
+              height={250}
               className="object-cover"
             />
           </Link>
@@ -146,8 +147,9 @@ const Navbar = () => {
             aria-label="Toggle mobile menu"
           >
             <i
-              className={`fas ${isMobileMenuOpen ? "fa-times" : "fa-bars"
-                } text-2xl`}
+              className={`fas ${
+                isMobileMenuOpen ? "fa-times" : "fa-bars"
+              } text-2xl`}
               aria-hidden="true"
             />
           </button>
@@ -156,16 +158,18 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden transition-all duration-300 ${
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
       />
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-full w-64 max-w-sm bg-orange-100/90 z-40 lg:hidden transform transition-transform duration-300 ease-in-out border-l border-amber-600/50 shadow-2xl ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="p-6">
           {/* Mobile Menu Header */}
@@ -175,13 +179,12 @@ const Navbar = () => {
             className="flex items-center space-x-2 mb-6"
           >
             <Image
-              src="/images/logo5.png"
+              src="/images/logo3.png"
               alt="Logo"
-              width={150}
-              height={150}
+              width={160}
+              height={160}
               className="rounded-full object-cover"
             />
-            
           </Link>
 
           {/* Mobile Navigation Links */}
