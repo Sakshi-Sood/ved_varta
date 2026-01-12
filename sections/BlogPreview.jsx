@@ -42,10 +42,10 @@ const BlogPreview = () => {
         <div className="text-center mb-8">
           <BlurText
             text="Vedic Wisdom Blog"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 textGradient justify-center"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 textGradient justify-center"
             delay={50}
           />
-          <p className="text-gray-700 sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 max-w-2xl mx-auto">
             Discover ancient Vedic insights, practical remedies, and
             astrological guidance to navigate life&apos;s journey with clarity
             and purpose.
@@ -86,11 +86,6 @@ const BlogPreview = () => {
               right={true}
             />
           </Link>
-
-          <p className="text-gray-600 mt-3 text-sm">
-            Explore our complete collection of Vedic astrology insights and
-            remedies
-          </p>
         </div>
       </div>
     </section>

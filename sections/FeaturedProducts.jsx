@@ -44,12 +44,12 @@ export default function FeaturedProducts() {
   const featuredItems = useMemo(pickFeatured, []);
 
   return (
-    <section className="py-5 sm:pt-16 sm:pb-12 overflow-hidden">
+    <section className="py-5 sm:pt-8 sm:pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 mb-8 sm:mb-12">
         <div className="text-center">
           <BlurText
             text="Featured Divine Products"
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 textGradient justify-center"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 sm:mb-4 textGradient justify-center"
             delay={50}
           />
           <p className="text-gray-600 sm:text-lg max-w-3xl mx-auto">

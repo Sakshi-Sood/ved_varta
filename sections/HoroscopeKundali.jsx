@@ -108,10 +108,10 @@ const HoroscopeKundali = () => {
         <div className="text-center mb-10">
           <BlurText
             text="Free Astrology Services"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 textGradient justify-center"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 textGradient justify-center"
             delay={50}
           />
-          <p className="text-gray-700 sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 sm:text-md max-w-2xl mx-auto">
             Explore your daily horoscope and check compatibility with our free
             kundali matching service powered by Vedic astrology.
           </p>
