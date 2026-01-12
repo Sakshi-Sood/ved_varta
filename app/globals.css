@@ -18,12 +18,10 @@
 
 /* Themed gradient text utility */
 .textGradient {
-  background: linear-gradient(
-    90deg,
-    theme("colors.amber.700"),
-    theme("colors.amber.600"),
-    theme("colors.yellow.500")
-  );
+  background: linear-gradient(90deg,
+      theme("colors.amber.700"),
+      theme("colors.amber.600"),
+      theme("colors.yellow.500"));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -150,6 +148,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
