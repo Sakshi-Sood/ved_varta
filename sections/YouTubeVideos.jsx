@@ -35,7 +35,7 @@ const YouTubeVideos = () => {
   }, []);
 
   return (
-    <section className="pb-16 px-5 sm:px-10 lg:px-44">
+    <section className="pt-8 pb-16 px-5 sm:px-10 lg:px-44">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -44,7 +44,7 @@ const YouTubeVideos = () => {
             className="text-3xl lg:text-4xl font-bold mb-4 textGradient justify-center"
             delay={50}
           />
-          <p className="text-gray-600 text-md max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Watch our expert Acharya Anoop tripathi share valuable insights and
             practical guidance
           </p>
@@ -181,7 +181,7 @@ const YouTubeVideos = () => {
         <div className="text-center mt-8 lg:mt-12 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 lg:p-8 border border-amber-200">
           <BlurText
             text="Subscribe for More Wisdom"
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 lg:mb-4 textGradient justify-center"
+            className="text-xl lg:text-2xl font-semibold mb-3 lg:mb-4 textGradient justify-center"
             delay={50}
           />
           <p className="text-gray-700 text-sm lg:text-base mb-4 lg:mb-6 max-w-2xl mx-auto">
