@@ -2,7 +2,6 @@ import BannerCarousel from "@/components/BannerCarousel";
 import BlogPreview from "../sections/BlogPreview";
 import Expertise from "../components/Expertise";
 import FeaturedProducts from "../sections/FeaturedProducts";
-import HoroscopeKundali from "../sections/HoroscopeKundali";
 import PujaPreview from "../sections/PujaPreview";
 import YouTubeVideos from "../sections/YouTubeVideos";
 import { homeBanners } from "@/data/banner";
@@ -14,7 +13,6 @@ export default function Home() {
         <BannerCarousel banners={homeBanners} />
       </div>
       <Expertise />
-      <HoroscopeKundali />
       <FeaturedProducts />
       <PujaPreview />
       <BlogPreview />

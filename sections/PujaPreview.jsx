@@ -65,13 +65,13 @@ export default function PujaPreview() {
     <section className="pt-12">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 sm:mb-14">
           <BlurText
             text="Sacred Puja Services"
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 textGradient justify-center"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 textGradient justify-center"
             delay={50}
           />
-          <p className="text-gray-600 sm:text-md max-w-3xl mx-auto">
+          <p className="text-gray-600 sm:text-lg max-w-3xl mx-auto">
             Experience divine blessings through our authentic Vedic rituals
             performed by experienced priests for peace, prosperity, and
             spiritual growth.
@@ -168,6 +168,10 @@ export default function PujaPreview() {
               right={true}
             />
           </Link>
+          <p className="text-gray-600 mt-3 text-sm">
+            Discover our complete range of authentic Vedic rituals and
+            ceremonies
+          </p>
         </div>
       </div>
     </section>

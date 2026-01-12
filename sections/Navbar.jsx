@@ -7,10 +7,10 @@ import Link from "next/link";
 
 export const navLinks = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
   { name: "Blogs", href: "/blogs" },
-  { name: "Book Puja", href: "/bookPuja" },
-  { name: "About", href: "/contact" },
+  { name: "Contact", href: "/contact" },
   { name: "Admin", href: "/admin" },
 ];
 
@@ -74,12 +74,25 @@ const Navbar = () => {
 
   const navClasses = useMemo(() => {
     const base =
-      "sticky bg-transparent top-0 z-50 transform transition-transform duration-300";
+      "sticky top-0 z-50 transform transition-transform duration-300";
     const translate = isVisible ? "translate-y-0" : "-translate-y-full";
     const bg = isMobileMenuOpen && "bg-orange-100/95";
 
-    return `${base} ${translate} ${bg} px-4 sm:px-6 md:px-8 lg:px-24 py-1 md:py-2 backdrop-blur-sm`;
+    return `${base} ${translate} ${bg} px-4 sm:px-6 md:px-8 lg:px-10 py-1 md:py-2 bg-white/90 backdrop-blur-sm border-b border-amber-600/30`;
   }, [isVisible, isMobileMenuOpen, isAtTop]);
+
+  const poojaIcon = useMemo(
+    () => (
+      <Image
+        src="/icons/agni-pooja.png"
+        alt="Pooja Icon"
+        width={20}
+        height={20}
+        aria-hidden="true"
+      />
+    ),
+    []
+  );
 
   const whatsappIcon = useMemo(
     () => <i className="fa-brands fa-whatsapp w-5 h-5" aria-hidden="true" />,
@@ -104,8 +117,8 @@ const Navbar = () => {
             <Image
               src="/images/logo.png"
               alt="Logo"
-              width={240}
-              height={240}
+              width={190}
+              height={190}
               className="object-cover"
             />
           </Link>
@@ -127,8 +140,8 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden lg:flex space-x-4">
-            <Link href="/about">
-              <Button text="VedVarta" />
+            <Link href="/bookPuja">
+              <Button text="Book Pooja" icon={poojaIcon} />
             </Link>
             <Link
               href="https://wa.me/+919090252584"
@@ -175,13 +188,13 @@ const Navbar = () => {
             className="flex items-center space-x-2 mb-6"
           >
             <Image
-              src="/images/logo5.png"
+              src="/images/logo.png"
               alt="Logo"
-              width={150}
-              height={150}
+              width={50}
+              height={50}
               className="rounded-full object-cover"
             />
-            
+            <span className="text-xl font-bold text-orange-400">VedVarta</span>
           </Link>
 
           {/* Mobile Navigation Links */}
@@ -200,9 +213,9 @@ const Navbar = () => {
           </ul>
 
           <div className="space-y-4">
-            <Link href="/about" onClick={closeMobileMenu} className="block">
+            <Link href="/bookPuja" onClick={closeMobileMenu} className="block">
               <div className="w-full">
-                <Button text="VedVarta" />
+                <Button text="Book Pooja" icon={poojaIcon} />
               </div>
             </Link>
             <Link
