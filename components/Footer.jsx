@@ -7,10 +7,22 @@ import Button from "./Button";
 import { navLinks } from "@/sections/Navbar";
 
 const socialLinks = [
-  { href: "https://www.instagram.com/acharyaanooptripathi", label: "Instagram", icon: "fab fa-instagram" },
+  {
+    href: "https://www.instagram.com/acharyaanooptripathi",
+    label: "Instagram",
+    icon: "fab fa-instagram",
+  },
   { href: "https://x.com/achary_anoop", label: "X", icon: "fab fa-x-twitter" },
-  { href: "https://www.facebook.com/profile.php?id=100004194258864&mibextid=ZbWKwL ", label: "Facebook", icon: "fab fa-facebook-f" },
-  { href: "https://www.youtube.com/@AcharyaAnoopTripathi", label: "YouTube", icon: "fab fa-youtube" },
+  {
+    href: "https://www.facebook.com/profile.php?id=100004194258864&mibextid=ZbWKwL ",
+    label: "Facebook",
+    icon: "fab fa-facebook-f",
+  },
+  {
+    href: "https://www.youtube.com/@AcharyaAnoopTripathi",
+    label: "YouTube",
+    icon: "fab fa-youtube",
+  },
 ];
 
 const serviceLinks = [
@@ -38,13 +50,15 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link className="flex items-center gap-2 mb-3 md:mb-4" href="/">
               <Image
-                src="/images/logo5.png"
+                src="/images/logo6.png"
                 alt="VedVarta Logo"
                 width={36}
                 height={36}
                 className="rounded-lg sm:w-10 sm:h-10"
               />
-              <h3 className="text-xl sm:text-2xl font-bold text-amber-600">VedVarta</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-amber-600">
+                VedVarta
+              </h3>
             </Link>
             <p className="text-gray-700 mb-3 md:mb-4 text-xs sm:text-sm leading-relaxed">
               Your trusted guide to ancient Vedic wisdom. Discover solutions to
