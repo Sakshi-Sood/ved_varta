@@ -1,21 +1,13 @@
 "use client";
 
-import  { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { redirect } from "next/navigation";
-import Link from "next/link";
 
 const PujaCard = ({ puja }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
-  
-  const { 
-    name, 
-    category, 
-    fullDescription, 
-    image, 
-    benefits
-  } = puja;
+
+  const { name, category, fullDescription, image, benefits } = puja;
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group h-full flex flex-col">
@@ -68,17 +60,14 @@ const PujaCard = ({ puja }) => {
         </div>
 
         {/* Book Now Button */}
-        <Link
-          href={`https://wa.me/+919090252584?text=I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(name)}.`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button
-            text="Book Now"
-            fill
-            fullWidth
-          />
-        </Link>
+        <Button
+          href={`https://wa.me/+919090252584?text=I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(
+            name
+          )}.`}
+          text="Book Now"
+          fill
+          fullWidth
+        />
       </div>
     </div>
   );

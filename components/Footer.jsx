@@ -52,18 +52,16 @@ const Footer = () => {
               guidance.
             </p>
             {/* Social Media Links */}
-            <div className="flex gap-3 md:gap-4">
+            <div className="flex gap-2 sm:gap-3">
               {socialLinks.map(({ href, label, icon }) => (
-                <Link
+                <Button
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 text-sm sm:text-base bg-amber-600 hover:bg-amber-700 text-white rounded-full flex items-center justify-center transition-colors"
+                  icon={<i className={icon} aria-hidden="true" />}
+                  fill={true}
+                  className="!w-9 !h-9 !p-0 sm:!w-10 sm:!h-10 text-sm sm:text-base"
                   aria-label={label}
-                >
-                  <i className={icon} aria-hidden="true" />
-                </Link>
+                />
               ))}
             </div>
           </div>
@@ -114,22 +112,17 @@ const Footer = () => {
               Get in touch with us for personalized guidance and support.
             </p>
 
-            <Link
+            <Button
               href="https://wa.me/+919090252584"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                text="WhatsApp"
-                icon={
-                  <i
-                    className="fa-brands fa-whatsapp w-4 h-4 sm:w-5 sm:h-5"
-                    aria-hidden="true"
-                  ></i>
-                }
-                fill={true}
-              />
-            </Link>
+              text="WhatsApp"
+              icon={
+                <i
+                  className="fa-brands fa-whatsapp text-lg"
+                  aria-hidden="true"
+                ></i>
+              }
+              fill={true}
+            />
           </div>
         </div>
 

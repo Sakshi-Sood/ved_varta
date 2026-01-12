@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Button from "./Button";
 
 const CTA = ({ title, description, className = "" }) => {
@@ -15,23 +14,17 @@ const CTA = ({ title, description, className = "" }) => {
           : "Get personalized guidance from Acharya Anoop Tripathi and discover the solutions to your life's challenges through ancient Vedic wisdom."}
       </p>
       <div className="flex justify-center gap-2 sm:gap-4">
-        <Link href="tel:+919090252584">
-          <Button
-            text="Book Consultation"
-            fill
-            className="text-sm whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2"
-          />
-        </Link>
-        <Link
+        <Button
+          href="tel:+919090252584"
+          text="Book Consultation"
+          fill
+          className="text-sm whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2"
+        />
+        <Button
           href="https://wa.me/+919090252584"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button
-            text="WhatsApp Us"
-            className="text-sm whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2"
-          />
-        </Link>
+          text="WhatsApp Us"
+          className="text-sm whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2"
+        />
       </div>
     </div>
   );

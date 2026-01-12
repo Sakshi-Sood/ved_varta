@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "./Button";
 
 const ProductModal = ({ product, isOpen, onClose }) => {
@@ -129,28 +128,22 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                 Contact us for personalized guidance and to place your order.
               </p>
               <div className="flex gap-3">
-                <Link href="tel:+919090252584">
-                  <Button
-                    text="Call Now!"
-                    icon={<i className="fas fa-phone" aria-hidden="true"></i>}
-                  />
-                </Link>
-                <Link
+                <Button
+                  href="tel:+919090252584"
+                  text="Call Now!"
+                  icon={<i className="fas fa-phone" aria-hidden="true"></i>}
+                />
+                <Button
                   href="https://wa.me/+919090252584"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    text="WhatsApp"
-                    icon={
-                      <i
-                        className="fa-brands fa-whatsapp w-5 h-5"
-                        aria-hidden="true"
-                      ></i>
-                    }
-                    fill={true}
-                  />
-                </Link>
+                  text="WhatsApp"
+                  icon={
+                    <i
+                      className="fa-brands fa-whatsapp w-5 h-5"
+                      aria-hidden="true"
+                    ></i>
+                  }
+                  fill={true}
+                />
               </div>
             </div>
           </div>
